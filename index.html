@@ -8,10 +8,62 @@
     <link rel="apple-touch-icon" href="https://uploadkon.ir/uploads/f78211_26اسکرین-اسپلش.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <style>
-        /* ---------- RESET & BASE ---------- */
+        /* ============================================================
+                   DESIGN SYSTEM — SHIFO 2026
+                   ============================================================ */
+        :root {
+            --brand-primary: #F47FA8;
+            --brand-secondary: #F8AFC4;
+            --brand-bg: #FAFAFA;
+            --text-primary: #1A1116;
+            --text-secondary: #5A4A52;
+            --text-light: #9A8A92;
+            --text-muted: #B5AAB0;
+            --white: #FFFFFF;
+            --glass-bg: rgba(255, 255, 255, 0.68);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --shadow-sm: 0 2px 12px rgba(244, 127, 168, 0.06);
+            --shadow-md: 0 8px 32px rgba(244, 127, 168, 0.08);
+            --shadow-lg: 0 16px 56px rgba(244, 127, 168, 0.10);
+            --shadow-xl: 0 24px 72px rgba(244, 127, 168, 0.12);
+            --radius-full: 9999px;
+            --radius-lg: 32px;
+            --radius-xl: 48px;
+            --space-1: 4px;
+            --space-2: 8px;
+            --space-3: 12px;
+            --space-4: 16px;
+            --space-5: 20px;
+            --space-6: 24px;
+            --space-7: 32px;
+            --space-8: 40px;
+            --space-9: 48px;
+            --space-10: 64px;
+            --space-11: 80px;
+            --text-xs: 0.6rem;
+            --text-sm: 0.7rem;
+            --text-base: 0.8rem;
+            --text-md: 0.9rem;
+            --text-lg: 1.0rem;
+            --text-xl: 1.1rem;
+            --text-2xl: 1.3rem;
+            --text-3xl: 1.6rem;
+            --text-4xl: 2.0rem;
+            --text-5xl: 2.6rem;
+            --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+            --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+            --duration-fast: 0.2s;
+            --duration-normal: 0.35s;
+            --duration-slow: 0.6s;
+            --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        /* ============================================================
+                   RESET & BASE
+                   ============================================================ */
         * {
             margin: 0;
             padding: 0;
@@ -19,16 +71,18 @@
         }
         html {
             scroll-behavior: smooth;
+            -webkit-tap-highlight-color: transparent;
         }
         body {
-            font-family: 'Inter', sans-serif;
-            background: #FAFAFA;
-            color: #1E1E1E;
+            font-family: var(--font);
+            background: var(--brand-bg);
+            color: var(--text-primary);
             line-height: 1.6;
             opacity: 0;
-            transition: opacity 0.6s ease;
+            transition: opacity 0.8s ease;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            padding-top: var(--space-2);
         }
         body.loaded {
             opacity: 1;
@@ -42,17 +96,19 @@
             display: block;
         }
         .container {
-            max-width: 1280px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 var(--space-4);
         }
 
-        /* ---------- اسپلش ---------- */
+        /* ============================================================
+                   SPLASH
+                   ============================================================ */
         #splash {
             position: fixed;
             inset: 0;
             z-index: 9999;
-            background: #FAFAFA;
+            background: var(--brand-bg);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -64,191 +120,322 @@
             pointer-events: none;
         }
         #splash img {
-            width: 160px;
-            animation: pulse 1.5s infinite alternate;
+            width: 140px;
+            animation: splashPulse 1.5s infinite alternate;
         }
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 0.8; }
-            100% { transform: scale(1.04); opacity: 1; }
+        @keyframes splashPulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+            100% {
+                transform: scale(1.04);
+                opacity: 1;
+            }
         }
 
-        /* ---------- HEADER (بدون نوشته SHIFO) ---------- */
+        /* ============================================================
+                   HEADER — Floating Pill Navbar
+                   ============================================================ */
         nav {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border-bottom: 1px solid rgba(234, 234, 234, 0.4);
-            padding: 8px 20px;
+            position: fixed;
+            top: var(--space-4);
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            width: auto;
+            min-width: 260px;
+            max-width: 92%;
+            padding: 6px 8px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(24px) saturate(1.4);
+            -webkit-backdrop-filter: blur(24px) saturate(1.4);
+            border-radius: var(--radius-full);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--shadow-md), 0 0 0 1px rgba(244, 127, 168, 0.04);
+            transition: all var(--duration-normal) var(--ease-smooth);
+        }
+        nav.scrolled {
+            top: var(--space-2);
+            padding: 4px 6px;
+            background: rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(32px) saturate(1.6);
+            box-shadow: var(--shadow-lg), 0 0 0 1px rgba(244, 127, 168, 0.06);
         }
         .nav-inner {
-            max-width: 1280px;
-            margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            flex-wrap: wrap;
             gap: 6px;
         }
-        .logo img {
-            height: 36px;
-            width: auto;
+        .logo-wrapper {
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
-            box-shadow: 0 2px 8px rgba(244, 127, 168, 0.2);
-            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all var(--duration-normal) var(--ease-spring);
+            background: transparent;
+            box-shadow: none;
         }
-        .logo img:hover {
-            transform: scale(1.04) rotate(-3deg);
+        .logo-wrapper:hover {
+            transform: scale(1.05);
+        }
+        .logo-wrapper img {
+            width: 38px;
+            height: 38px;
+            object-fit: contain;
+            display: block;
         }
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 6px;
-            font-weight: 500;
-            font-size: 0.82rem;
-            flex-wrap: wrap;
+            gap: 2px;
         }
         .nav-links a {
-            color: #3a3a3a;
+            font-size: var(--text-sm);
+            font-weight: 500;
+            color: var(--text-secondary);
+            padding: 6px 14px;
+            border-radius: var(--radius-full);
+            transition: all var(--duration-fast) var(--ease-smooth);
             display: flex;
             align-items: center;
-            gap: 4px;
-            padding: 4px 12px;
-            border-radius: 30px;
-            transition: 0.2s;
+            gap: 6px;
+        }
+        .nav-links a i {
+            font-size: 0.7rem;
+            opacity: 0.5;
+            transition: opacity var(--duration-fast);
         }
         .nav-links a:hover {
-            color: #F47FA8;
-            background: rgba(248, 175, 196, 0.08);
+            background: rgba(244, 127, 168, 0.06);
+            color: var(--brand-primary);
+        }
+        .nav-links a:hover i {
+            opacity: 1;
         }
         .nav-links a.active {
-            color: #F47FA8;
-            background: rgba(248, 175, 196, 0.12);
+            background: rgba(244, 127, 168, 0.10);
+            color: var(--brand-primary);
+            font-weight: 600;
+        }
+        .nav-links a.active i {
+            opacity: 1;
         }
         .nav-links .search-icon {
-            font-size: 1rem;
-            color: #5a5a5a;
             background: none;
             border: none;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            padding: 6px 10px;
+            border-radius: var(--radius-full);
             cursor: pointer;
-            padding: 4px 10px;
+            transition: all var(--duration-fast) var(--ease-smooth);
+            display: flex;
+            align-items: center;
+        }
+        .nav-links .search-icon:hover {
+            background: rgba(244, 127, 168, 0.06);
+            color: var(--brand-primary);
         }
 
-        /* ---------- HERO: محتوای وسط‌چین در سمت چپ ---------- */
+        /* ============================================================
+                   HERO — با حباب‌های صورتی (فریز شده)
+                   ============================================================ */
         .hero {
-            position: relative;
-            background: url('https://uploadkon.ir/uploads/3f1111_26بکگراند.png') no-repeat center/cover;
-            background-size: cover;
-            min-height: 72vh;
+            min-height: 85vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            margin: 0;
-            padding: 20px 0 0 0;
-            width: 100%;
+            padding: var(--space-10) 0 var(--space-4) 0;
+            position: relative;
+            overflow: hidden;
+            background: url('https://uploadkon.ir/uploads/55c812_26آشپزخانه.png') no-repeat center/cover;
+            border-radius: 0;
         }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40%;
+            background: linear-gradient(to top, #FAFAFA 0%, transparent 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.70) 0%, rgba(248, 175, 196, 0.10) 50%, rgba(244, 127, 168, 0.03) 100%);
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .bubbles-container {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .bubble {
+            position: absolute;
+            bottom: -60px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(244, 127, 168, 0.5), rgba(248, 175, 196, 0.15));
+            box-shadow: 0 0 40px rgba(244, 127, 168, 0.2), inset 0 -8px 20px rgba(244, 127, 168, 0.05);
+            animation: riseUp linear infinite;
+            opacity: 0;
+            backdrop-filter: blur(2px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .bubble::after {
+            content: '';
+            position: absolute;
+            top: 15%;
+            left: 20%;
+            width: 25%;
+            height: 20%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 0%, transparent 100%);
+            border-radius: 50%;
+            opacity: 0.8;
+        }
+        @keyframes riseUp {
+            0% {
+                transform: translateY(0) scale(0.6) rotate(0deg);
+                opacity: 0;
+            }
+            15% {
+                opacity: 0.8;
+            }
+            85% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-110vh) scale(1.1) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
         .hero-content {
-            width: 100%;
-            max-width: 1280px;
-            padding: 0 20px;
-            margin: 0 auto;
+            position: relative;
+            z-index: 3;
             display: flex;
             flex-direction: column;
-            align-items: flex-start; /* چپ‌چین */
-        }
-        .hero-content-wrapper {
-            width: 100%;
-            max-width: 560px;
-            margin-right: auto; /* چپ‌چین شدن */
-            margin-left: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* وسط‌چین داخلی */
+            align-items: center;
             text-align: center;
+            padding: 0 var(--space-4);
+            max-width: 680px;
+            margin: 0 auto;
         }
-        .hero-content .greeting {
-            font-size: 0.85rem;
+        .hero-badge {
+            font-size: var(--text-xs);
             font-weight: 500;
-            color: #F47FA8;
-            letter-spacing: 0.3px;
-            margin-bottom: 2px;
+            color: var(--brand-primary);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(8px);
+            padding: 2px 16px;
+            border-radius: var(--radius-full);
+            display: inline-block;
+            border: 1px solid rgba(244, 127, 168, 0.08);
+            margin-bottom: var(--space-2);
         }
         .hero-content .logo-big {
-            margin: 2px 0 6px 0;
+            margin: var(--space-2) 0 var(--space-3) 0;
         }
         .hero-content .logo-big img {
-            height: 64px;
+            height: 200px;
             width: auto;
             display: inline-block;
+            filter: drop-shadow(0 4px 24px rgba(244, 127, 168, 0.12));
+            transition: transform var(--duration-slow) var(--ease-spring);
+        }
+        .hero-content .logo-big img:hover {
+            transform: rotate(-2deg) scale(1.02);
         }
         .hero-content .sub-headline {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 4px;
+            font-size: clamp(var(--text-xl), 3.5vw, var(--text-4xl));
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: var(--space-2);
+            text-shadow: 0 2px 12px rgba(255, 255, 255, 0.3);
+        }
+        .hero-content .sub-headline span {
+            color: var(--brand-primary);
+            position: relative;
+        }
+        .hero-content .sub-headline span::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            right: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(244, 127, 168, 0.12);
+            border-radius: var(--radius-full);
+            z-index: -1;
         }
         .hero-content p {
-            font-size: 0.95rem;
-            color: #4a4a4a;
-            max-width: 400px;
-            margin: 0 auto 20px auto;
+            font-size: clamp(var(--text-sm), 1vw, var(--text-base));
+            color: var(--text-secondary);
+            max-width: 440px;
+            margin: var(--space-2) auto var(--space-6) auto;
             line-height: 1.7;
+            font-weight: 400;
+            text-shadow: 0 2px 12px rgba(255, 255, 255, 0.2);
         }
 
-        /* عکس پایین با ارتفاع کنترل‌شده و هم‌عرض */
-        .hero-bottom-image {
-            width: 100%;
-            margin-top: auto;
-            padding: 0;
-            display: flex;
-            justify-content: flex-start;
-            overflow: hidden;
-            flex-shrink: 0;
-        }
-        .hero-bottom-image img {
-            width: 100%;
-            height: auto;
-            max-height: 200px;
-            object-fit: cover;
-            display: block;
-            border-radius: 0;
-            transform: translateY(4px);
-        }
-
-        /* ---------- SEARCH BAR ---------- */
+        /* ============================================================
+                   SEARCH
+                   ============================================================ */
         .search-wrapper {
-            background: rgba(255, 255, 255, 0.98);
-            border-radius: 60px;
-            padding: 4px 4px 4px 8px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
-            border: 1px solid rgba(234, 234, 234, 0.5);
-            max-width: 560px;
             width: 100%;
+            max-width: 560px;
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(16px) saturate(1.2);
+            -webkit-backdrop-filter: blur(16px) saturate(1.2);
+            border-radius: var(--radius-full);
+            padding: 4px 4px 4px 8px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: var(--shadow-md), 0 0 0 1px rgba(244, 127, 168, 0.03);
             display: flex;
             align-items: center;
             gap: 4px;
+            transition: all var(--duration-normal) var(--ease-smooth);
             position: relative;
-            transition: box-shadow 0.25s, border-color 0.25s;
         }
         .search-wrapper:focus-within {
-            box-shadow: 0 12px 40px rgba(244, 127, 168, 0.10);
-            border-color: #F8AFC4;
+            box-shadow: var(--shadow-lg), 0 0 0 3px rgba(244, 127, 168, 0.08);
+            border-color: var(--brand-secondary);
+            transform: translateY(-1px);
+            background: rgba(255, 255, 255, 0.95);
         }
         .search-wrapper input {
             border: none;
             background: transparent;
             flex: 1;
-            padding: 10px 14px;
-            font-size: 0.9rem;
+            padding: 12px 14px;
+            font-size: var(--text-sm);
             outline: none;
-            min-width: 80px;
-            color: #1a1a1a;
-            font-family: inherit;
+            min-width: 70px;
+            color: var(--text-primary);
+            font-family: var(--font);
+            font-weight: 400;
         }
         .search-wrapper input::placeholder {
-            color: #aaa;
+            color: var(--text-light);
+            font-weight: 300;
         }
         .search-actions {
             display: flex;
@@ -260,37 +447,41 @@
             background: transparent;
             border: none;
             padding: 6px 10px;
-            border-radius: 40px;
-            color: #5a5a5a;
-            font-size: 0.9rem;
+            border-radius: var(--radius-full);
+            color: var(--text-secondary);
+            font-size: 0.8rem;
             cursor: pointer;
-            transition: 0.2s;
-            font-family: inherit;
+            transition: all var(--duration-fast) var(--ease-smooth);
+            font-family: var(--font);
             display: flex;
             align-items: center;
             gap: 4px;
             white-space: nowrap;
         }
         .search-actions button:hover {
-            background: #FFF0F3;
-            color: #F47FA8;
+            background: rgba(244, 127, 168, 0.05);
+            color: var(--brand-primary);
         }
         .search-actions .btn-filter {
-            background: #F8AFC4;
-            color: #2E2E2E;
-            padding: 6px 14px;
-            border-radius: 40px;
-            font-weight: 600;
-            font-size: 0.75rem;
+            background: rgba(244, 127, 168, 0.06);
+            color: var(--text-secondary);
+            padding: 5px 12px;
+            border-radius: var(--radius-full);
+            font-weight: 500;
+            font-size: var(--text-xs);
             position: relative;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: all var(--duration-fast) var(--ease-smooth);
         }
         .search-actions .btn-filter:hover {
-            background: #F47FA8;
-            color: white;
+            background: rgba(244, 127, 168, 0.10);
+            color: var(--brand-primary);
+            border-color: rgba(244, 127, 168, 0.05);
         }
         .search-actions .btn-voice {
-            background: #f0f0f0;
-            color: #555;
+            background: rgba(0, 0, 0, 0.02);
+            color: var(--text-secondary);
             border-radius: 50%;
             width: 34px;
             height: 34px;
@@ -298,561 +489,564 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.9rem;
-            transition: 0.3s;
+            font-size: 0.8rem;
+            transition: all var(--duration-normal) var(--ease-spring);
             flex-shrink: 0;
         }
         .search-actions .btn-voice:hover {
-            background: #F47FA8;
-            color: white;
+            background: rgba(244, 127, 168, 0.06);
+            color: var(--brand-primary);
+            transform: scale(1.04);
         }
         .search-actions .btn-voice.listening {
-            background: #F47FA8;
+            background: var(--brand-primary);
             color: white;
-            animation: pulse-voice 1s infinite;
+            animation: voicePulse 1.2s infinite;
         }
-        @keyframes pulse-voice {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.08); }
-            100% { transform: scale(1); }
+        @keyframes voicePulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(244, 127, 168, 0.3);
+            }
+            50% {
+                transform: scale(1.06);
+                box-shadow: 0 0 0 14px rgba(244, 127, 168, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(244, 127, 168, 0);
+            }
         }
         .search-actions .btn-clear {
-            color: #aaa;
+            color: var(--text-light);
+            padding: 5px 6px;
         }
         .search-actions .btn-clear:hover {
-            color: #F47FA8;
+            color: var(--brand-primary);
         }
         .search-actions .btn-search {
-            background: #F47FA8;
+            background: var(--brand-primary);
             color: white;
             padding: 6px 18px;
-            border-radius: 40px;
+            border-radius: var(--radius-full);
             font-weight: 600;
-            font-size: 0.8rem;
-            transition: 0.2s;
+            font-size: var(--text-xs);
+            transition: all var(--duration-normal) var(--ease-spring);
+            box-shadow: 0 4px 20px rgba(244, 127, 168, 0.2);
+            border: none;
+            cursor: pointer;
         }
         .search-actions .btn-search:hover {
             background: #e06a92;
+            transform: scale(1.02);
+            box-shadow: 0 6px 28px rgba(244, 127, 168, 0.3);
         }
 
-        /* ---------- FILTER DROPDOWN ---------- */
+        /* ============================================================
+                   FILTER DROPDOWN
+                   ============================================================ */
         .filter-dropdown {
             display: none;
             position: absolute;
-            top: calc(100% + 6px);
+            top: calc(100% + var(--space-3));
             right: 0;
-            background: white;
-            border-radius: 14px;
-            border: 1px solid #EAEAEA;
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
-            padding: 6px 0;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: var(--shadow-lg);
+            padding: var(--space-2) 0;
             min-width: 150px;
             z-index: 60;
+            overflow: hidden;
         }
         .filter-dropdown.show {
             display: block;
+            animation: dropdownFade 0.25s ease-out;
+        }
+        @keyframes dropdownFade {
+            from {
+                opacity: 0;
+                transform: translateY(-6px) scale(0.98);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
         .filter-dropdown a {
             display: block;
-            padding: 6px 16px;
-            color: #2E2E2E;
-            transition: 0.2s;
-            font-size: 0.8rem;
+            padding: 6px 18px;
+            color: var(--text-secondary);
+            transition: all var(--duration-fast) var(--ease-smooth);
+            font-size: var(--text-sm);
             border-right: 3px solid transparent;
+            cursor: pointer;
+            text-decoration: none;
         }
         .filter-dropdown a:hover {
-            background: #FFF5F8;
-            border-right-color: #F8AFC4;
+            background: rgba(244, 127, 168, 0.04);
+            color: var(--text-primary);
         }
         .filter-dropdown a.active-filter {
-            background: #FFF5F8;
-            border-right-color: #F47FA8;
+            background: rgba(244, 127, 168, 0.06);
+            border-right-color: var(--brand-primary);
+            color: var(--brand-primary);
             font-weight: 600;
         }
 
-        /* ---------- SECTION TITLES ---------- */
+        /* ============================================================
+                   SEPARATOR
+                   ============================================================ */
+        .section-divider {
+            width: 100%;
+            height: 40px;
+            background: url('https://uploadkon.ir/uploads/66d812_26جدا-کنننده.png') repeat-x center;
+            background-size: auto 100%;
+            margin: var(--space-8) 0;
+            opacity: 0.7;
+        }
+
+        /* ============================================================
+                   SECTION TITLES
+                   ============================================================ */
         .section-title {
-            font-size: 1.3rem;
+            font-size: var(--text-xl);
             font-weight: 600;
-            margin-bottom: 16px;
+            margin-bottom: var(--space-4);
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: var(--space-3);
+            color: var(--text-primary);
         }
         .section-title i {
-            color: #F8AFC4;
-            font-size: 1.2rem;
+            color: var(--brand-primary);
+            font-size: 1.1rem;
+            opacity: 0.6;
         }
 
-        /* ---------- RECIPE CARDS ---------- */
+        /* ============================================================
+                   RECIPE CARDS — طراحی حرفه‌ای
+                   ============================================================ */
         .recipe-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 18px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: var(--space-6);
+            margin-bottom: var(--space-8);
         }
-        .recipe-card {
-            background: white;
-            border-radius: 18px;
-            overflow: hidden;
-            border: 1px solid #EAEAEA;
-            transition: all 0.3s ease;
-            display: block;
-            animation: fadeUp 0.5s ease forwards;
-            opacity: 0;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.01);
-        }
-        .recipe-card:nth-child(1) { animation-delay: 0.05s; }
-        .recipe-card:nth-child(2) { animation-delay: 0.1s; }
-        .recipe-card:nth-child(3) { animation-delay: 0.15s; }
-        .recipe-card:nth-child(4) { animation-delay: 0.2s; }
-        .recipe-card:nth-child(5) { animation-delay: 0.25s; }
 
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(12px); }
-            to { opacity: 1; transform: translateY(0); }
+        .recipe-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.02);
+            transition: all var(--duration-normal) var(--ease-spring);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            animation: cardFadeUp 0.6s ease-out forwards;
+            opacity: 0;
+            cursor: pointer;
+            will-change: transform;
+        }
+        .recipe-card:nth-child(1) { animation-delay: 0.04s; }
+        .recipe-card:nth-child(2) { animation-delay: 0.08s; }
+        .recipe-card:nth-child(3) { animation-delay: 0.12s; }
+        .recipe-card:nth-child(4) { animation-delay: 0.16s; }
+        .recipe-card:nth-child(5) { animation-delay: 0.20s; }
+
+        @keyframes cardFadeUp {
+            from { opacity: 0; transform: translateY(24px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
         .recipe-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.04);
-            border-color: #F8AFC4;
+            transform: translateY(-10px) scale(1.01);
+            box-shadow: var(--shadow-xl);
+            border-color: rgba(244, 127, 168, 0.08);
         }
+
         .recipe-card-img {
-            height: 150px;
+            height: 200px;
             background-size: cover;
             background-position: center;
             position: relative;
+            background-color: #f0e8e8;
+            overflow: hidden;
+            transition: transform var(--duration-slow) var(--ease-spring);
         }
-        .recipe-card:nth-child(1) .recipe-card-img { background-image: url('https://uploadkon.ir/uploads/3f0012_26کوکی-توت-فرنگی.jpg'); }
-        .recipe-card:nth-child(2) .recipe-card-img { background-image: url('https://uploadkon.ir/uploads/3f0012_26کوکی-توت-فرنگی.jpg'); }
-        .recipe-card:nth-child(3) .recipe-card-img { background-image: url('https://uploadkon.ir/uploads/3f0012_26کوکی-توت-فرنگی.jpg'); }
-        .recipe-card:nth-child(4) .recipe-card-img { background-image: url('https://uploadkon.ir/uploads/3f0012_26کوکی-توت-فرنگی.jpg'); }
-        .recipe-card:nth-child(5) .recipe-card-img { background-image: url('https://uploadkon.ir/uploads/3f0012_26کوکی-توت-فرنگی.jpg'); }
+        .recipe-card:hover .recipe-card-img {
+            transform: scale(1.03);
+        }
+
+        .recipe-card-img .badge {
+            position: absolute;
+            top: var(--space-3);
+            right: var(--space-3);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 3px 16px;
+            border-radius: var(--radius-full);
+            font-size: var(--text-xs);
+            font-weight: 600;
+            color: var(--text-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--duration-fast) var(--ease-smooth);
+            z-index: 2;
+        }
+        .recipe-card:hover .badge {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            background: rgba(255, 255, 255, 0.92);
+        }
+
+        .recipe-card-img .img-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(0, 0, 0, 0.03) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
 
         .recipe-card-body {
-            padding: 12px 14px 16px;
+            padding: var(--space-4) var(--space-5) var(--space-5);
         }
+
         .recipe-card-body .tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 3px;
-            margin-bottom: 4px;
+            gap: var(--space-1);
+            margin-bottom: var(--space-2);
         }
         .recipe-card-body .tag {
             display: inline-block;
-            background: #F8AFC4;
-            padding: 1px 8px;
-            border-radius: 30px;
-            font-size: 0.5rem;
-            font-weight: 600;
-            color: #2E2E2E;
+            background: rgba(244, 127, 168, 0.06);
+            padding: 2px 12px;
+            border-radius: var(--radius-full);
+            font-size: var(--text-xs);
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: all var(--duration-fast) var(--ease-smooth);
         }
+        .recipe-card:hover .tag {
+            background: rgba(244, 127, 168, 0.10);
+        }
+
         .recipe-card-body h4 {
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 4px;
+            font-weight: 700;
+            font-size: var(--text-md);
+            margin-bottom: var(--space-1);
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
+            transition: color var(--duration-fast) var(--ease-smooth);
         }
+        .recipe-card:hover h4 {
+            color: var(--brand-primary);
+        }
+
         .recipe-meta {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px 12px;
-            font-size: 0.65rem;
-            color: #5a5a5a;
-            margin: 4px 0 8px;
+            gap: var(--space-2) var(--space-4);
+            font-size: var(--text-xs);
+            color: var(--text-light);
+            margin: var(--space-1) 0 var(--space-3);
         }
         .recipe-meta i {
             margin-left: 3px;
-            color: #F47FA8;
+            color: var(--brand-primary);
+            opacity: 0.5;
         }
+
         .recipe-actions {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 6px;
+            margin-top: var(--space-3);
+            padding-top: var(--space-3);
+            border-top: 1px solid rgba(0, 0, 0, 0.03);
             flex-wrap: wrap;
-            gap: 4px;
+            gap: var(--space-2);
         }
         .recipe-actions .cook-info {
             display: flex;
-            gap: 8px;
-            font-size: 0.65rem;
-            color: #5a5a5a;
+            gap: var(--space-3);
+            font-size: var(--text-xs);
+            color: var(--text-light);
         }
         .recipe-actions .cook-info i {
-            color: #F47FA8;
+            color: var(--brand-primary);
             margin-left: 3px;
+            opacity: 0.4;
         }
+
         .recipe-actions .btn {
-            padding: 3px 12px;
-            font-size: 0.65rem;
-            border-radius: 30px;
-        }
-        .recipe-actions .btn-primary {
-            background: #F47FA8;
-            color: white;
+            padding: 5px 18px;
+            font-size: var(--text-xs);
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            transition: all var(--duration-fast) var(--ease-spring);
             border: none;
-            transition: 0.2s;
+            cursor: pointer;
+            background: var(--brand-primary);
+            color: white;
+            box-shadow: 0 2px 12px rgba(244, 127, 168, 0.12);
+            letter-spacing: 0.02em;
         }
-        .recipe-actions .btn-primary:hover {
+        .recipe-actions .btn:hover {
             background: #e06a92;
-            transform: scale(1.03);
+            transform: scale(1.04);
+            box-shadow: 0 4px 20px rgba(244, 127, 168, 0.25);
         }
+
         .favorite-btn {
             background: transparent;
             border: none;
             font-size: 1rem;
-            color: #ccc;
-            transition: 0.2s;
+            color: var(--text-muted);
+            transition: all var(--duration-normal) var(--ease-spring);
             cursor: pointer;
-            padding: 2px 4px;
+            padding: 2px 6px;
         }
         .favorite-btn:hover {
-            color: #F47FA8;
-            transform: scale(1.1);
+            color: var(--brand-primary);
+            transform: scale(1.15);
         }
         .favorite-btn.liked {
-            color: #F47FA8;
+            color: var(--brand-primary);
         }
         .favorite-btn.liked i {
-            animation: heartBeat 0.3s ease;
+            animation: heartPop 0.4s var(--ease-spring);
         }
-        @keyframes heartBeat {
+        @keyframes heartPop {
             0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
+            50% { transform: scale(1.3); }
             100% { transform: scale(1); }
         }
 
-        /* ---------- FAVORITES ---------- */
+        /* ============================================================
+                   FAVORITES & FOOTER
+                   ============================================================ */
         .favorites-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 18px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: var(--space-6);
+            margin-bottom: var(--space-8);
         }
         .favorites-empty {
             text-align: center;
-            padding: 32px 20px;
-            color: #8a8a8a;
-            background: white;
-            border-radius: 18px;
-            border: 1px dashed #EAEAEA;
+            padding: var(--space-8) var(--space-4);
+            color: var(--text-light);
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            border: 1px dashed rgba(0, 0, 0, 0.04);
         }
         .favorites-empty i {
-            font-size: 2rem;
-            color: #F8AFC4;
-            margin-bottom: 8px;
+            font-size: 2.4rem;
+            color: var(--brand-secondary);
+            margin-bottom: var(--space-3);
+            opacity: 0.4;
         }
 
-        /* ---------- FOOTER ---------- */
         footer {
-            border-top: 1px solid #EAEAEA;
-            padding: 18px 0 14px;
-            margin-top: 8px;
+            border-top: 1px solid rgba(0, 0, 0, 0.02);
+            padding: var(--space-6) 0 var(--space-4);
+            margin-top: var(--space-2);
             text-align: center;
-            color: #8a8a8a;
-            font-size: 0.75rem;
+            color: var(--text-light);
+            font-size: var(--text-xs);
         }
         footer .footer-logo img {
             height: 28px;
             width: auto;
-            margin: 0 auto 4px;
+            margin: 0 auto var(--space-2);
+            opacity: 0.4;
         }
 
-        /* ---------- RESPONSIVE ---------- */
-        @media (min-width: 1024px) {
-            .hero {
-                min-height: 78vh;
-                padding: 30px 0 0 0;
-            }
-            .hero-content-wrapper {
-                max-width: 560px;
-                margin-right: auto;
-                margin-left: 0;
-            }
-            .hero-bottom-image img {
-                max-height: 240px;
-                transform: translateY(6px);
-            }
-            .recipe-grid {
-                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-                gap: 24px;
-            }
-            .favorites-grid {
-                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-                gap: 24px;
-            }
-        }
-
-        @media (max-width: 820px) {
-            .hero {
-                min-height: 60vh;
-                padding: 15px 0 0 0;
-            }
-            .hero-content-wrapper {
-                max-width: 100%;
-                margin-right: auto;
-                margin-left: 0;
-            }
-            .search-wrapper {
-                max-width: 100%;
-            }
-            .hero-bottom-image img {
-                max-height: 160px;
-                transform: translateY(3px);
-            }
-            .recipe-grid {
-                grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-                gap: 14px;
-            }
-            .favorites-grid {
-                grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-                gap: 14px;
-            }
-        }
-
-        @media (max-width: 540px) {
-            .nav-inner {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .nav-links {
-                justify-content: center;
-                gap: 2px;
+        /* ============================================================
+                   RESPONSIVE
+                   ============================================================ */
+        @media (max-width: 640px) {
+            nav {
+                top: var(--space-2);
+                min-width: auto;
+                width: calc(100% - 20px);
+                padding: 4px 6px;
             }
             .nav-links a {
-                padding: 3px 8px;
-                font-size: 0.75rem;
+                font-size: var(--text-xs);
+                padding: 4px 8px;
             }
-            .hero-content .logo-big img {
-                height: 48px;
+            .nav-links a i { font-size: 0.6rem; }
+            .logo-wrapper { width: 34px; height: 34px; }
+            .logo-wrapper img { width: 30px; height: 30px; }
+            .hero {
+                min-height: 78vh;
+                padding: var(--space-8) 0 var(--space-3);
             }
-            .hero-content .sub-headline {
-                font-size: 1rem;
-            }
-            .hero-content p {
-                font-size: 0.85rem;
-                max-width: 100%;
-            }
+            .hero-content .logo-big img { height: 140px; }
+            .hero-content .sub-headline { font-size: var(--text-xl); }
+            .hero-content p { font-size: var(--text-sm); max-width: 100%; }
             .search-wrapper {
-                flex-wrap: nowrap;
-                padding: 4px;
-                border-radius: 40px;
+                padding: 3px 3px 3px 6px;
+                max-width: 100%;
             }
             .search-wrapper input {
                 padding: 8px 10px;
-                font-size: 0.8rem;
-                min-width: 60px;
-            }
-            .search-actions {
-                gap: 1px;
+                font-size: var(--text-xs);
+                min-width: 50px;
             }
             .search-actions button {
                 padding: 4px 6px;
-                font-size: 0.75rem;
+                font-size: var(--text-xs);
             }
-            .search-actions .btn-filter span {
-                display: none;
-            }
-            .search-actions .btn-filter {
-                padding: 4px 8px;
-                font-size: 0.7rem;
-            }
-            .search-actions .btn-search span {
-                display: none;
-            }
-            .search-actions .btn-search {
-                padding: 4px 10px;
-                font-size: 0.75rem;
-            }
-            .search-actions .btn-voice {
-                width: 28px;
-                height: 28px;
-                font-size: 0.75rem;
-            }
-            .search-actions .btn-clear {
-                padding: 4px 6px;
-            }
-            .filter-dropdown {
-                right: -10px;
-                min-width: 120px;
-            }
-            .filter-dropdown a {
-                padding: 4px 12px;
-                font-size: 0.75rem;
-            }
+            .search-actions .btn-filter span { display: none; }
+            .search-actions .btn-filter { padding: 4px 8px; font-size: var(--text-xs); }
+            .search-actions .btn-search span { display: none; }
+            .search-actions .btn-search { padding: 4px 10px; font-size: var(--text-xs); }
+            .search-actions .btn-voice { width: 30px; height: 30px; font-size: 0.7rem; }
             .recipe-grid {
                 grid-template-columns: 1fr 1fr;
-                gap: 10px;
+                gap: var(--space-3);
             }
-            .recipe-card {
-                border-radius: 14px;
-            }
-            .recipe-card-img {
-                height: 120px;
-            }
-            .recipe-card-body {
-                padding: 8px 10px 12px;
-            }
-            .recipe-card-body h4 {
-                font-size: 0.8rem;
-            }
-            .recipe-meta {
-                font-size: 0.55rem;
-                gap: 4px 8px;
-            }
-            .recipe-actions .cook-info {
-                font-size: 0.5rem;
-                gap: 4px;
-                flex-wrap: wrap;
-            }
-            .recipe-actions .btn {
-                padding: 2px 8px;
-                font-size: 0.55rem;
-            }
-            .favorite-btn {
-                font-size: 0.8rem;
-            }
-            .hero-bottom-image img {
-                max-height: 100px;
-                transform: translateY(2px);
-            }
+            .recipe-card { border-radius: 24px; }
+            .recipe-card-img { height: 130px; }
+            .recipe-card-body { padding: var(--space-3); }
+            .recipe-card-body h4 { font-size: var(--text-sm); }
+            .recipe-meta { font-size: var(--text-xs); gap: var(--space-1) var(--space-2); }
+            .recipe-actions .cook-info { font-size: var(--text-xs); gap: var(--space-1); flex-wrap: wrap; }
+            .recipe-actions .btn { padding: 3px 12px; font-size: var(--text-xs); }
+            .favorite-btn { font-size: 0.8rem; }
+            .favorites-grid { grid-template-columns: 1fr 1fr; gap: var(--space-3); }
+            .filter-dropdown { min-width: 120px; right: -8px; }
+            .filter-dropdown a { padding: 5px 14px; font-size: var(--text-xs); }
+            .hero-badge { font-size: var(--text-xs); padding: 1px 12px; }
+            .section-divider { height: 28px; margin: var(--space-4) 0; }
+            .bubble { display: none; }
+        }
+
+        @media (max-width: 400px) {
+            .recipe-grid { gap: var(--space-2); }
+            .recipe-card-img { height: 110px; }
+            .nav-links a { font-size: 0.5rem; padding: 2px 6px; }
+            .search-actions .btn-search { padding: 3px 8px; }
+            .search-actions .btn-voice { width: 26px; height: 26px; font-size: 0.6rem; }
+            .search-wrapper input { padding: 5px 6px; font-size: var(--text-xs); }
+            .hero-content .sub-headline { font-size: var(--text-lg); }
+            .hero-content .logo-big img { height: 110px; }
+            .section-divider { height: 20px; margin: var(--space-3) 0; }
+            .recipe-card-body h4 { font-size: var(--text-xs); }
+            .recipe-actions .btn { padding: 2px 8px; font-size: 0.5rem; }
+        }
+
+        @media (min-width: 1024px) {
             .hero {
-                background-size: cover;
-                background-position: center;
-                min-height: 50vh;
-                padding: 10px 0 0 0;
+                min-height: 82vh;
+                padding: var(--space-11) 0 var(--space-5);
             }
-            .hero-content {
-                padding: 0 12px;
-            }
-            .hero-content-wrapper {
-                max-width: 100%;
-            }
-            .section-title {
-                font-size: 1.1rem;
-            }
-            .favorites-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 10px;
-            }
+            .hero-content .logo-big img { height: 200px; }
+            .hero-content .sub-headline { font-size: var(--text-4xl); }
+            .hero-content p { font-size: var(--text-base); }
+            .recipe-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-7); }
+            .favorites-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-7); }
+            .recipe-card-img { height: 220px; }
+            .section-divider { height: 48px; margin: var(--space-9) 0; }
         }
 
-        @media (max-width: 380px) {
-            .recipe-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 8px;
-            }
-            .recipe-card-img {
-                height: 100px;
-            }
-            .search-actions .btn-filter {
-                padding: 3px 6px;
-                font-size: 0.6rem;
-            }
-            .search-actions .btn-search {
-                padding: 3px 8px;
-                font-size: 0.65rem;
-            }
-            .search-actions .btn-voice {
-                width: 24px;
-                height: 24px;
-                font-size: 0.65rem;
-            }
-            .search-wrapper input {
-                padding: 6px 8px;
-                font-size: 0.7rem;
-                min-width: 50px;
-            }
+        .hidden { display: none !important; }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: all 0.7s ease-out;
         }
-
-        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-            .hero {
-                background-image: url('https://uploadkon.ir/uploads/3f1111_26بکگراند.png');
-            }
-        }
-
-        .hidden {
-            display: none !important;
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
 
-    <!-- ===== اسپلش ===== -->
+    <!-- ===== SPLASH ===== -->
     <div id="splash">
         <img src="https://uploadkon.ir/uploads/f78211_26اسکرین-اسپلش.png" alt="SHIFO" />
     </div>
 
-    <!-- ===== HEADER (بدون نوشته SHIFO) ===== -->
-    <nav>
+    <!-- ===== HEADER ===== -->
+    <nav id="mainNav">
         <div class="nav-inner">
-            <a href="#home" class="logo">
-                <img src="https://uploadkon.ir/uploads/43e211_26shifo-logo.png" alt="SHIFO" />
+            <a href="#home" class="logo-wrapper" aria-label="خانه">
+                <img src="https://uploadkon.ir/uploads/b1a712_26shifo-logo2.png" alt="SHIFO" />
             </a>
             <div class="nav-links">
                 <a href="#home" class="active"><i class="fas fa-home"></i> خانه</a>
                 <a href="#recipes"><i class="fas fa-utensils"></i> دستورها</a>
-                <a href="#favorites"><i class="fas fa-heart"></i> علاقه‌مندی‌ها</a>
-                <button class="search-icon" onclick="document.querySelector('.search-wrapper input').focus()">
+                <a href="#favorites"><i class="fas fa-heart"></i> علاقه‌ها</a>
+                <button class="search-icon" onclick="document.querySelector('.search-wrapper input').focus()" aria-label="جستجو">
                     <i class="fas fa-search"></i>
                 </button>
             </div>
         </div>
     </nav>
 
-    <!-- ===== HERO (محتوای وسط‌چین در سمت چپ) ===== -->
+    <!-- ===== HERO با حباب‌های صورتی ===== -->
     <section class="hero" id="home">
-        <div class="hero-content">
-            <div class="hero-content-wrapper">
-                <div class="greeting">خوش آمدید به</div>
-                <div class="logo-big">
-                    <img src="https://uploadkon.ir/uploads/43e211_26shifo-logo.png" alt="SHIFO" />
-                </div>
-                <div class="sub-headline">گنجینه شخصی دستورهای شما</div>
-                <p>سازماندهی، خلق و کشف دستورهای خوشمزه از آشپزخانه تا قلب‌تان.</p>
+        <div class="bubbles-container" id="bubblesContainer"></div>
 
-                <div class="search-wrapper" style="position:relative;">
-                    <input type="text" placeholder="جستجو..." id="searchInput" onkeyup="filterRecipes()" />
-                    <div class="search-actions">
-                        <button class="btn-filter" onclick="toggleFilterDropdown(event)">
-                            <i class="fas fa-sliders-h"></i> <span>دسته</span>
-                            <i class="fas fa-chevron-down" style="font-size:0.5rem;"></i>
-                        </button>
-                        <div class="filter-dropdown" id="filterDropdown">
-                            <a href="#" data-category="all" class="active-filter" onclick="filterByCategory('all', this)">همه</a>
-                            <a href="#" data-category="دسر" onclick="filterByCategory('دسر', this)">دسرها</a>
-                            <a href="#" data-category="نانوایی" onclick="filterByCategory('نانوایی', this)">نانوایی</a>
-                            <a href="#" data-category="سالاد" onclick="filterByCategory('سالاد', this)">سالادها</a>
-                            <a href="#" data-category="نوشیدنی" onclick="filterByCategory('نوشیدنی', this)">نوشیدنی‌ها</a>
-                            <a href="#" data-category="سس" onclick="filterByCategory('سس', this)">سس‌ها</a>
-                            <a href="#" data-category="تنقلات" onclick="filterByCategory('تنقلات', this)">تنقلات</a>
-                            <a href="#" data-category="سوپ" onclick="filterByCategory('سوپ', this)">سوپ‌ها</a>
-                            <a href="#" data-category="صبحانه" onclick="filterByCategory('صبحانه', this)">صبحانه</a>
-                        </div>
-                        <button class="btn-voice" id="voiceButton" title="جستجوی صوتی" onclick="toggleVoiceSearch()">
-                            <i class="fas fa-microphone"></i>
-                        </button>
-                        <button class="btn-clear" title="پاک کردن" onclick="clearSearch()"><i class="fas fa-times-circle"></i></button>
-                        <button class="btn-search" onclick="filterRecipes()"><i class="fas fa-search"></i> <span>جستجو</span></button>
+        <div class="hero-content">
+            <span class="hero-badge">✦ خوش آمدید ✦</span>
+            <div class="logo-big">
+                <img src="https://uploadkon.ir/uploads/43e211_26shifo-logo.png" alt="SHIFO" />
+            </div>
+            <h1 class="sub-headline">
+                گنجینه شخصی <span>دستورهای</span> شما
+            </h1>
+            <p>سازماندهی، خلق و کشف دستورهای خوشمزه از آشپزخانه تا قلب‌تان.</p>
+
+            <div class="search-wrapper" style="position:relative;">
+                <input type="text" placeholder="جستجو برای دستورها، مواد، دسته‌بندی..." id="searchInput" onkeyup="filterRecipes()" />
+                <div class="search-actions">
+                    <button class="btn-filter" id="filterButton" onclick="toggleFilterDropdown(event)">
+                        <i class="fas fa-sliders-h"></i> <span>دسته</span>
+                        <i class="fas fa-chevron-down" style="font-size:0.35rem; opacity:0.5;"></i>
+                    </button>
+                    <div class="filter-dropdown" id="filterDropdown">
+                        <a href="#" data-category="all" class="active-filter" onclick="filterByCategory('all', this)">همه</a>
+                        <a href="#" data-category="دسر" onclick="filterByCategory('دسر', this)">دسرها</a>
+                        <a href="#" data-category="نانوایی" onclick="filterByCategory('نانوایی', this)">نانوایی</a>
+                        <a href="#" data-category="سالاد" onclick="filterByCategory('سالاد', this)">سالادها</a>
+                        <a href="#" data-category="نوشیدنی" onclick="filterByCategory('نوشیدنی', this)">نوشیدنی‌ها</a>
+                        <a href="#" data-category="سس" onclick="filterByCategory('سس', this)">سس‌ها</a>
+                        <a href="#" data-category="تنقلات" onclick="filterByCategory('تنقلات', this)">تنقلات</a>
+                        <a href="#" data-category="سوپ" onclick="filterByCategory('سوپ', this)">سوپ‌ها</a>
+                        <a href="#" data-category="صبحانه" onclick="filterByCategory('صبحانه', this)">صبحانه</a>
                     </div>
+                    <button class="btn-voice" id="voiceButton" title="جستجوی صوتی" onclick="toggleVoiceSearch()">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                    <button class="btn-clear" title="پاک کردن" onclick="clearSearch()"><i class="fas fa-times-circle"></i></button>
+                    <button class="btn-search" onclick="filterRecipes()"><i class="fas fa-search"></i> <span>جستجو</span></button>
                 </div>
             </div>
         </div>
-
-        <!-- عکس پایین -->
-        <div class="hero-bottom-image">
-            <img src="https://uploadkon.ir/uploads/f0c912_26لب.png" alt="تصویر پایین صفحه" />
-        </div>
     </section>
+
+    <!-- ===== جداکننده ===== -->
+    <div class="section-divider"></div>
 
     <!-- ===== MAIN ===== -->
     <div class="container">
-        <h2 class="section-title" id="recipes"><i class="fas fa-clock"></i> دستورهای ویژه</h2>
+
+        <h2 class="section-title fade-in" id="recipes"><i class="fas fa-clock"></i> دستورهای ویژه</h2>
         <div class="recipe-grid" id="recipeGrid">
-            <!-- رسپی‌ها -->
+            <!-- Recipe 1 -->
             <a href="001.html" class="recipe-card" data-category="دسر" data-id="001">
-                <div class="recipe-card-img"></div>
+                <div class="recipe-card-img" style="background-image: url('https://uploadkon.ir/uploads/9f1d12_26copilot-image-1783837582444.jpeg');">
+                    <span class="badge">جدید</span>
+                    <div class="img-overlay"></div>
+                </div>
                 <div class="recipe-card-body">
                     <div class="tags"><span class="tag">دسر</span><span class="tag">خاص</span></div>
                     <h4>کوکی توت فرنگی</h4>
@@ -867,19 +1061,23 @@
                         </div>
                         <div>
                             <button class="favorite-btn" onclick="event.preventDefault(); toggleFavorite(this, '001')"><i class="far fa-heart"></i></button>
-                            <span class="btn btn-primary">مشاهده</span>
+                            <button class="btn">مشاهده</button>
                         </div>
                     </div>
                 </div>
             </a>
-            <a href="002.html" class="recipe-card" data-category="دسر" data-id="002">
-                <div class="recipe-card-img"></div>
+            <!-- Recipe 2 -->
+            <a href="002.html" class="recipe-card" data-category="نوشیدنی" data-id="002">
+                <div class="recipe-card-img" style="background-image: url('https://uploadkon.ir/uploads/516a12_26copilot-image-1783838652847.jpeg');">
+                    <span class="badge">محبوب</span>
+                    <div class="img-overlay"></div>
+                </div>
                 <div class="recipe-card-body">
-                    <div class="tags"><span class="tag">دسر</span><span class="tag">شکلاتی</span></div>
-                    <h4>کیک خیس شکلاتی</h4>
+                    <div class="tags"><span class="tag">نوشیدنی</span><span class="tag">میوه ای</span></div>
+                    <h4>واژه ای برای هیچکس</h4>
                     <div class="recipe-meta">
                         <span><i class="far fa-clock"></i> ۴۵ دقیقه</span>
-                        <span><i class="fas fa-fire"></i> ۱۷۵°C</span>
+                        <span><i class="fas fa-fire"></i> -2°C</span>
                     </div>
                     <div class="recipe-actions">
                         <div class="cook-info">
@@ -888,13 +1086,17 @@
                         </div>
                         <div>
                             <button class="favorite-btn" onclick="event.preventDefault(); toggleFavorite(this, '002')"><i class="far fa-heart"></i></button>
-                            <span class="btn btn-primary">مشاهده</span>
+                            <button class="btn">مشاهده</button>
                         </div>
                     </div>
                 </div>
             </a>
+            <!-- Recipe 3 -->
             <a href="003.html" class="recipe-card" data-category="دسر" data-id="003">
-                <div class="recipe-card-img"></div>
+                <div class="recipe-card-img" style="background-image: url('https://uploadkon.ir/uploads/3eb512_26copilot-image-1783838345208.jpeg');">
+                    <span class="badge">سنتی</span>
+                    <div class="img-overlay"></div>
+                </div>
                 <div class="recipe-card-body">
                     <div class="tags"><span class="tag">دسر</span><span class="tag">سنتی</span></div>
                     <h4>حلوا تو حلوا</h4>
@@ -909,13 +1111,17 @@
                         </div>
                         <div>
                             <button class="favorite-btn" onclick="event.preventDefault(); toggleFavorite(this, '003')"><i class="far fa-heart"></i></button>
-                            <span class="btn btn-primary">مشاهده</span>
+                            <button class="btn">مشاهده</button>
                         </div>
                     </div>
                 </div>
             </a>
+            <!-- Recipe 4 -->
             <a href="004.html" class="recipe-card" data-category="نانوایی" data-id="004">
-                <div class="recipe-card-img"></div>
+                <div class="recipe-card-img" style="background-image: url('https://uploadkon.ir/uploads/6fbc12_26copilot-image-1783837089928.jpeg');">
+                    <span class="badge">شیرین</span>
+                    <div class="img-overlay"></div>
+                </div>
                 <div class="recipe-card-body">
                     <div class="tags"><span class="tag">شیرینی</span><span class="tag">سنتی</span></div>
                     <h4>لخته</h4>
@@ -930,13 +1136,17 @@
                         </div>
                         <div>
                             <button class="favorite-btn" onclick="event.preventDefault(); toggleFavorite(this, '004')"><i class="far fa-heart"></i></button>
-                            <span class="btn btn-primary">مشاهده</span>
+                            <button class="btn">مشاهده</button>
                         </div>
                     </div>
                 </div>
             </a>
+            <!-- Recipe 5 -->
             <a href="005.html" class="recipe-card" data-category="تنقلات" data-id="005">
-                <div class="recipe-card-img"></div>
+                <div class="recipe-card-img" style="background-image: url('https://uploadkon.ir/uploads/845512_26copilot-image-1783837869713.jpeg');">
+                    <span class="badge">گوشتی</span>
+                    <div class="img-overlay"></div>
+                </div>
                 <div class="recipe-card-body">
                     <div class="tags"><span class="tag">تنقلات</span><span class="tag">گوشتی</span></div>
                     <h4>پیراشکی گوشت</h4>
@@ -951,74 +1161,187 @@
                         </div>
                         <div>
                             <button class="favorite-btn" onclick="event.preventDefault(); toggleFavorite(this, '005')"><i class="far fa-heart"></i></button>
-                            <span class="btn btn-primary">مشاهده</span>
+                            <button class="btn">مشاهده</button>
                         </div>
                     </div>
                 </div>
             </a>
         </div>
 
-        <h2 class="section-title" id="favorites"><i class="fas fa-heart" style="color:#F47FA8;"></i> علاقه‌مندی‌ها</h2>
-        <div id="favoritesContainer">
+        <!-- ===== FAVORITES ===== -->
+        <h2 class="section-title fade-in" id="favorites"><i class="fas fa-heart" style="color:var(--brand-primary);"></i> علاقه‌مندی‌ها</h2>
+        <div id="favoritesContainer" class="fade-in">
             <div class="favorites-empty" id="favoritesEmpty">
                 <i class="fas fa-heart"></i>
                 <p>هنوز رسپی را لایک نکرده‌اید.</p>
-                <p style="font-size:0.75rem;">روی قلب ❤️ زیر هر رسپی کلیک کنید.</p>
+                <p style="font-size:var(--text-sm); color:var(--text-light);">روی قلب ❤️ زیر هر رسپی کلیک کنید.</p>
             </div>
             <div class="favorites-grid" id="favoritesGrid"></div>
         </div>
+
     </div>
 
+    <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
             <div class="footer-logo">
                 <img src="https://uploadkon.ir/uploads/43e211_26shifo-logo.png" alt="SHIFO" />
             </div>
-            <p>© ۲۰۲۶ SHIFO · با <i class="fas fa-heart" style="color:#F8AFC4;"></i></p>
+            <p>© ۲۰۲۶ SHIFO · طراحی با <i class="fas fa-heart" style="color:var(--brand-primary); opacity:0.4;"></i></p>
         </div>
     </footer>
 
     <script>
-        // ===== اسپلش =====
+        // ============================================================
+        // SPLASH
+        // ============================================================
         window.addEventListener('load', function() {
             setTimeout(() => {
                 document.getElementById('splash').classList.add('hide');
                 document.body.classList.add('loaded');
             }, 700);
             updateFavorites();
+            initScrollAnimations();
+            createBubbles();
         });
 
-        // ===== داده‌های رسپی =====
+        // ============================================================
+        // ایجاد حباب‌های صورتی
+        // ============================================================
+        function createBubbles() {
+            const container = document.getElementById('bubblesContainer');
+            const bubbleCount = 18;
+            const colors = ['rgba(244,127,168,0.25)', 'rgba(248,175,196,0.20)', 'rgba(244,127,168,0.15)'];
+
+            for (let i = 0; i < bubbleCount; i++) {
+                const bubble = document.createElement('div');
+                bubble.className = 'bubble';
+                const size = 20 + Math.random() * 55;
+                bubble.style.width = size + 'px';
+                bubble.style.height = size + 'px';
+                bubble.style.left = Math.random() * 100 + '%';
+                bubble.style.animationDuration = 10 + Math.random() * 20 + 's';
+                bubble.style.animationDelay = Math.random() * 15 + 's';
+                bubble.style.background = `radial-gradient(circle at 30% 30%, ${colors[Math.floor(Math.random() * colors.length)]}, rgba(244,127,168,0.05))`;
+                bubble.style.boxShadow = `0 0 ${20 + Math.random() * 40}px rgba(244,127,168,${0.1 + Math.random() * 0.2})`;
+                container.appendChild(bubble);
+            }
+        }
+
+        // ============================================================
+        // SCROLL ANIMATIONS
+        // ============================================================
+        function initScrollAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        }
+
+        // ============================================================
+        // HEADER SCROLL EFFECT
+        // ============================================================
+        let lastScroll = 0;
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('mainNav');
+            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            if (currentScroll > 20) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+            lastScroll = currentScroll;
+        });
+
+        // ============================================================
+        // RECIPE DATA
+        // ============================================================
         const recipes = [
-            { id: '001', title: 'کوکی توت فرنگی', category: 'دسر', file: '001.html', serves: '۴ نفر', difficulty: 'آسان', time: '۳۰ دقیقه', temp: '۱۸۰°C' },
-            { id: '002', title: 'کیک خیس شکلاتی', category: 'دسر', file: '002.html', serves: '۶ نفر', difficulty: 'متوسط', time: '۴۵ دقیقه', temp: '۱۷۵°C' },
-            { id: '003', title: 'حلوا تو حلوا', category: 'دسر', file: '003.html', serves: '۸ نفر', difficulty: 'دشوار', time: '۵۰ دقیقه', temp: '۱۶۰°C' },
-            { id: '004', title: 'لخته', category: 'نانوایی', file: '004.html', serves: '۶ نفر', difficulty: 'متوسط', time: '۶۰ دقیقه', temp: '۱۷۰°C' },
-            { id: '005', title: 'پیراشکی گوشت', category: 'تنقلات', file: '005.html', serves: '۴ نفر', difficulty: 'دشوار', time: '۷۰ دقیقه', temp: '۱۸۰°C' }
+            { id: '001', title: 'کوکی توت فرنگی', category: 'دسر', file: '001.html', serves: '۴ نفر', difficulty: 'آسان',
+                time: '۳۰ دقیقه', temp: '۱۸۰°C' },
+            { id: '002', title: 'کیک خیس شکلاتی', category: 'دسر', file: '002.html', serves: '۶ نفر', difficulty: 'متوسط',
+                time: '۴۵ دقیقه', temp: '۱۷۵°C' },
+            { id: '003', title: 'حلوا تو حلوا', category: 'دسر', file: '003.html', serves: '۸ نفر', difficulty: 'دشوار',
+                time: '۵۰ دقیقه', temp: '۱۶۰°C' },
+            { id: '004', title: 'لخته', category: 'نانوایی', file: '004.html', serves: '۶ نفر', difficulty: 'متوسط',
+                time: '۶۰ دقیقه', temp: '۱۷۰°C' },
+            { id: '005', title: 'پیراشکی گوشت', category: 'تنقلات', file: '005.html', serves: '۴ نفر', difficulty: 'دشوار',
+                time: '۷۰ دقیقه', temp: '۱۸۰°C' }
         ];
 
-        // ===== فیلتر =====
+        // ============================================================
+        // FILTER — اصلاح شده برای عملکرد صحیح
+        // ============================================================
         let currentCategory = 'all';
 
         function filterByCategory(category, element) {
+            // به‌روزرسانی دسته‌بندی انتخاب‌شده
             currentCategory = category;
+            
+            // حذف کلاس active از همه آیتم‌های دراپ‌داون
             document.querySelectorAll('.filter-dropdown a').forEach(a => a.classList.remove('active-filter'));
-            if (element) element.classList.add('active-filter');
-            else document.querySelector('.filter-dropdown a[data-category="all"]').classList.add('active-filter');
+            
+            // افزودن کلاس active به آیتم انتخاب‌شده
+            if (element) {
+                element.classList.add('active-filter');
+            } else {
+                // اگر عنصر ارسال نشده، روی "همه" قرار بده
+                const allItem = document.querySelector('.filter-dropdown a[data-category="all"]');
+                if (allItem) allItem.classList.add('active-filter');
+            }
+            
+            // بستن دراپ‌داون
             document.getElementById('filterDropdown').classList.remove('show');
+            
+            // اعمال فیلتر
             filterRecipes();
         }
 
         function filterRecipes() {
             const searchValue = document.getElementById('searchInput').value.toLowerCase().trim();
-            document.querySelectorAll('.recipe-card').forEach(card => {
+            const recipeCards = document.querySelectorAll('.recipe-card');
+            let visibleCount = 0;
+            
+            recipeCards.forEach(card => {
                 const category = card.dataset.category || '';
                 const title = card.querySelector('h4')?.textContent?.toLowerCase() || '';
                 const tags = card.querySelector('.tags')?.textContent?.toLowerCase() || '';
+                
                 const matchCategory = currentCategory === 'all' || category === currentCategory;
                 const matchSearch = !searchValue || title.includes(searchValue) || tags.includes(searchValue);
-                card.classList.toggle('hidden', !(matchCategory && matchSearch));
+                
+                if (matchCategory && matchSearch) {
+                    card.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden');
+                }
             });
+            
+            // به‌روزرسانی تعداد در دکمه فیلتر (اختیاری)
+            const filterBtn = document.querySelector('.btn-filter');
+            if (filterBtn) {
+                const categoryNames = {
+                    'all': 'همه',
+                    'دسر': 'دسرها',
+                    'نانوایی': 'نانوایی',
+                    'سالاد': 'سالادها',
+                    'نوشیدنی': 'نوشیدنی‌ها',
+                    'سس': 'سس‌ها',
+                    'تنقلات': 'تنقلات',
+                    'سوپ': 'سوپ‌ها',
+                    'صبحانه': 'صبحانه'
+                };
+                const displayName = categoryNames[currentCategory] || currentCategory;
+                const countSpan = filterBtn.querySelector('span');
+                if (countSpan) {
+                    countSpan.textContent = displayName;
+                }
+            }
         }
 
         function clearSearch() {
@@ -1027,11 +1350,18 @@
             document.getElementById('searchInput').focus();
         }
 
-        // ===== دراپ‌داون =====
+        // ============================================================
+        // FILTER DROPDOWN — اصلاح شده برای باز و بسته شدن صحیح
+        // ============================================================
         function toggleFilterDropdown(event) {
-            event.stopPropagation();
-            document.getElementById('filterDropdown').classList.toggle('show');
+            if (event) {
+                event.stopPropagation();
+            }
+            const dropdown = document.getElementById('filterDropdown');
+            dropdown.classList.toggle('show');
         }
+
+        // بستن دراپ‌داون با کلیک خارج از آن
         document.addEventListener('click', function(e) {
             const dropdown = document.getElementById('filterDropdown');
             const btn = document.querySelector('.btn-filter');
@@ -1040,7 +1370,9 @@
             }
         });
 
-        // ===== تایپ صوتی =====
+        // ============================================================
+        // VOICE SEARCH
+        // ============================================================
         let recognition = null;
         let isListening = false;
 
@@ -1090,7 +1422,9 @@
             recognition.start();
         }
 
-        // ===== علاقه‌مندی‌ها =====
+        // ============================================================
+        // FAVORITES
+        // ============================================================
         function toggleFavorite(btn, recipeId) {
             const icon = btn.querySelector('i');
             const isLiked = icon.classList.contains('fas');
@@ -1137,31 +1471,37 @@
                 const recipe = recipes.find(r => r.id === id);
                 if (!recipe) return '';
                 return `
-                    <a href="${recipe.file}" class="recipe-card" data-category="${recipe.category}" data-id="${recipe.id}">
-                        <div class="recipe-card-img"></div>
-                        <div class="recipe-card-body">
-                            <div class="tags"><span class="tag">${recipe.category}</span></div>
-                            <h4>${recipe.title}</h4>
-                            <div class="recipe-meta">
-                                <span><i class="far fa-clock"></i> ${recipe.time}</span>
-                                <span><i class="fas fa-fire"></i> ${recipe.temp}</span>
+                        <a href="${recipe.file}" class="recipe-card" data-category="${recipe.category}" data-id="${recipe.id}">
+                            <div class="recipe-card-img" style="background-image: url('https://uploadkon.ir/uploads/3f0012_26کوکی-توت-فرنگی.jpg');">
+                                <span class="badge">❤️</span>
+                                <div class="img-overlay"></div>
                             </div>
-                            <div class="recipe-actions">
-                                <div class="cook-info">
-                                    <span><i class="fas fa-utensils"></i> ${recipe.serves}</span>
-                                    <span><i class="fas fa-signal"></i> ${recipe.difficulty}</span>
+                            <div class="recipe-card-body">
+                                <div class="tags"><span class="tag">${recipe.category}</span></div>
+                                <h4>${recipe.title}</h4>
+                                <div class="recipe-meta">
+                                    <span><i class="far fa-clock"></i> ${recipe.time}</span>
+                                    <span><i class="fas fa-fire"></i> ${recipe.temp}</span>
                                 </div>
-                                <div>
-                                    <button class="favorite-btn liked" onclick="event.preventDefault(); toggleFavorite(this, '${recipe.id}')"><i class="fas fa-heart"></i></button>
-                                    <span class="btn btn-primary">مشاهده</span>
+                                <div class="recipe-actions">
+                                    <div class="cook-info">
+                                        <span><i class="fas fa-utensils"></i> ${recipe.serves}</span>
+                                        <span><i class="fas fa-signal"></i> ${recipe.difficulty}</span>
+                                    </div>
+                                    <div>
+                                        <button class="favorite-btn liked" onclick="event.preventDefault(); toggleFavorite(this, '${recipe.id}')"><i class="fas fa-heart"></i></button>
+                                        <button class="btn">مشاهده</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
-                `;
+                        </a>
+                    `;
             }).join('');
         }
 
+        // ============================================================
+        // NAV ACTIVE
+        // ============================================================
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', function() {
                 document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
@@ -1169,8 +1509,11 @@
             });
         });
 
+        // ============================================================
+        // VIEW BUTTON
+        // ============================================================
         document.addEventListener('click', function(e) {
-            if (e.target.classList.contains('btn-primary') && e.target.closest('.recipe-card')) {
+            if (e.target.classList.contains('btn') && e.target.closest('.recipe-card')) {
                 const card = e.target.closest('.recipe-card');
                 if (card) window.location.href = card.getAttribute('href');
             }
