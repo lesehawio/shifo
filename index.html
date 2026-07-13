@@ -1104,7 +1104,7 @@
                     </div>
                     <div class="recipe-actions">
                         <div class="cook-info">
-                            <span><i class="fas fa-utensils"></i> 8 نفر</span>
+                            <span><i class="fas fa-utensils"></i> 4 نفر</span>
                             <span><i class="fas fa-signal"></i> دشوار</span>
                         </div>
                         <div>
@@ -1191,7 +1191,7 @@
             </a>
             <!-- Recipe 7 -->
             <a href="007.html" class="recipe-card" data-category="لیوانی" data-id="007">
-                <div class="recipe-card-img" style="background-image: url('https://raw.githubusercontent.com/lesehawio/shifo/main/000/000/story%20glass.png');">
+                <div class="recipe-card-img" style="background-image: url('https://raw.githubusercontent.com/lesehawio/shifo/main/000/story%20glass.png');">
                     <span class="badge">شیرین</span>
                     <div class="img-overlay"></div>
                 </div>
@@ -1355,32 +1355,24 @@
         let currentCategory = 'all';
 
         function filterByCategory(category, element) {
-            // به‌روزرسانی دسته‌بندی انتخاب‌شده
             currentCategory = category;
             
-            // حذف کلاس active از همه آیتم‌های دراپ‌داون
             document.querySelectorAll('.filter-dropdown a').forEach(a => a.classList.remove('active-filter'));
             
-            // افزودن کلاس active به آیتم انتخاب‌شده
             if (element) {
                 element.classList.add('active-filter');
             } else {
-                // اگر عنصر ارسال نشده، روی "همه" قرار بده
                 const allItem = document.querySelector('.filter-dropdown a[data-category="all"]');
                 if (allItem) allItem.classList.add('active-filter');
             }
             
-            // بستن دراپ‌داون
             document.getElementById('filterDropdown').classList.remove('show');
-            
-            // اعمال فیلتر
             filterRecipes();
         }
 
         function filterRecipes() {
             const searchValue = document.getElementById('searchInput').value.toLowerCase().trim();
             const recipeCards = document.querySelectorAll('.recipe-card');
-            let visibleCount = 0;
             
             recipeCards.forEach(card => {
                 const category = card.dataset.category || '';
@@ -1392,13 +1384,11 @@
                 
                 if (matchCategory && matchSearch) {
                     card.classList.remove('hidden');
-                    visibleCount++;
                 } else {
                     card.classList.add('hidden');
                 }
             });
             
-            // به‌روزرسانی تعداد در دکمه فیلتر (اختیاری)
             const filterBtn = document.querySelector('.btn-filter');
             if (filterBtn) {
                 const categoryNames = {
@@ -1428,7 +1418,7 @@
         }
 
         // ============================================================
-        // FILTER DROPDOWN — اصلاح شده برای باز و بسته شدن صحیح
+        // FILTER DROPDOWN
         // ============================================================
         function toggleFilterDropdown(event) {
             if (event) {
@@ -1438,7 +1428,6 @@
             dropdown.classList.toggle('show');
         }
 
-        // بستن دراپ‌داون با کلیک خارج از آن
         document.addEventListener('click', function(e) {
             const dropdown = document.getElementById('filterDropdown');
             const btn = document.querySelector('.btn-filter');
@@ -1584,7 +1573,7 @@
                 '004': 'Clot.jpeg',
                 '005': 'omelette%20dumpling.jpeg',
                 '006': 'shadak.png',
-                '007': 'rolet%20cack.png',
+                '007': 'story%20glass.png',
                 '008': 'rolet%20cack.png'
             };
             return images[id] || 'shifo%20logo2.png';
