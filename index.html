@@ -658,6 +658,7 @@
         .recipe-card:nth-child(7) { animation-delay: 0.28s; }
         .recipe-card:nth-child(8) { animation-delay: 0.32s; }
         .recipe-card:nth-child(9) { animation-delay: 0.36s; }
+        .recipe-card:nth-child(10) { animation-delay: 0.40s; }
 
         @keyframes cardFadeUp {
             from { opacity: 0; transform: translateY(24px) scale(0.98); }
@@ -1027,6 +1028,7 @@
                         <a href="#" data-category="سوپ" onclick="filterByCategory('سوپ', this)">سوپ‌ها</a>
                         <a href="#" data-category="صبحانه" onclick="filterByCategory('صبحانه', this)">صبحانه</a>
                         <a href="#" data-category="کرم" onclick="filterByCategory('کرم', this)">کرم‌ها</a>
+                        <a href="#" data-category="خمیر" onclick="filterByCategory('خمیر', this)">خمیر و شیرینی</a>
                     </div>
                     <button class="btn-voice" id="voiceButton" title="جستجوی صوتی" onclick="toggleVoiceSearch()">
                         <i class="fas fa-microphone"></i>
@@ -1062,7 +1064,7 @@
                     <div class="recipe-actions">
                         <div class="cook-info">
                             <span><i class="fas fa-utensils"></i> ۱۵-۲۰ کوکی</span>
-                            <span><i class="fas fa-signal"></i> متوسظ</span>
+                            <span><i class="fas fa-signal"></i> متوسط</span>
                         </div>
                         <div>
                             <button class="favorite-btn" onclick="event.preventDefault(); toggleFavorite(this, '001')"><i class="far fa-heart"></i></button>
@@ -1243,7 +1245,7 @@
                     </div>
                 </div>
             </a>
-            <!-- Recipe 9 — جدید: کرم شکلاتی -->
+            <!-- Recipe 9 — کرم شکلاتی -->
             <a href="009.html" class="recipe-card" data-category="کرم" data-id="009">
                 <div class="recipe-card-img" style="background-image: url('https://raw.githubusercontent.com/lesehawio/shifo/main/000/%DA%A9%D8%B1%D9%85%20%D8%B4%DA%A9%D9%84%D8%A7%D8%AA%DB%8C.png');">
                     <span class="badge">سریع</span>
@@ -1263,6 +1265,31 @@
                         </div>
                         <div>
                             <button class="favorite-btn" onclick="event.preventDefault(); toggleFavorite(this, '009')"><i class="far fa-heart"></i></button>
+                            <button class="btn">مشاهده</button>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <!-- Recipe 10 — جدید: خمیر مجسمه‌سازی آشپزی -->
+            <a href="010.html" class="recipe-card" data-category="خمیر" data-id="010">
+                <div class="recipe-card-img" style="background-image: url('https://raw.githubusercontent.com/lesehawio/shifo/main/000/%D8%AE%D9%85%DB%8C%D8%B1.png');">
+                    <span class="badge">هنری</span>
+                    <div class="img-overlay"></div>
+                </div>
+                <div class="recipe-card-body">
+                    <div class="tags"><span class="tag">خمیر</span><span class="tag">مجسمه‌سازی</span><span class="tag">شیرینی</span></div>
+                    <h4>خمیر مجسمه‌سازی آشپزی</h4>
+                    <div class="recipe-meta">
+                        <span><i class="far fa-clock"></i> 40 دقیقه</span>
+                        <span><i class="fas fa-fire"></i> حرارت گاز</span>
+                    </div>
+                    <div class="recipe-actions">
+                        <div class="cook-info">
+                            <span><i class="fas fa-utensils"></i> -</span>
+                            <span><i class="fas fa-signal"></i> متوسط</span>
+                        </div>
+                        <div>
+                            <button class="favorite-btn" onclick="event.preventDefault(); toggleFavorite(this, '010')"><i class="far fa-heart"></i></button>
                             <button class="btn">مشاهده</button>
                         </div>
                     </div>
@@ -1362,8 +1389,8 @@
         // RECIPE DATA
         // ============================================================
         const recipes = [
-            { id: '001', title: 'کوکی توت فرنگی', category: 'دسر', file: '001.html', serves: '۴ نفر', difficulty: 'آسان',
-                time: '۵۰ دقیقه', temp: '۱۸۰°C' },
+            { id: '001', title: 'کوکی توت فرنگی', category: 'دسر', file: '001.html', serves: '۱۵-۲۰ کوکی', difficulty: 'متوسط',
+                time: '۳۰ دقیقه', temp: '۱۸۰°C' },
             { id: '002', title: 'واژه ای برای هیچکس', category: 'نوشیدنی', file: '002.html', serves: '۱ نفر', difficulty: 'متوسط',
                 time: '۶۰ دقیقه', temp: '۰°C' },
             { id: '003', title: 'حلوا تو حلوا', category: 'دسر', file: '003.html', serves: '۴ نفر', difficulty: 'دشوار',
@@ -1379,7 +1406,9 @@
             { id: '008', title: 'رولت کیک', category: 'دسر', file: '008.html', serves: '۴ نفر', difficulty: 'متوسط',
                 time: '۳۰ دقیقه', temp: '۱۸۰°C' },
             { id: '009', title: 'کرم شکلاتی', category: 'کرم', file: '009.html', serves: '۱ نفر', difficulty: 'آسان',
-                time: '۱۰ دقیقه', temp: 'حرارت کم' }
+                time: '۱۰ دقیقه', temp: 'حرارت کم' },
+            { id: '010', title: 'خمیر مجسمه‌سازی آشپزی', category: 'خمیر', file: '010.html', serves: '-', difficulty: 'متوسط',
+                time: '۴۰ دقیقه', temp: 'حرارت گاز' }
         ];
 
         // ============================================================
@@ -1435,7 +1464,8 @@
                     'سوپ': 'سوپ‌ها',
                     'صبحانه': 'صبحانه',
                     'لیوانی': 'لیوانی',
-                    'کرم': 'کرم‌ها'
+                    'کرم': 'کرم‌ها',
+                    'خمیر': 'خمیر و شیرینی'
                 };
                 const displayName = categoryNames[currentCategory] || currentCategory;
                 const countSpan = filterBtn.querySelector('span');
@@ -1609,7 +1639,8 @@
                 '006': 'shadak.png',
                 '007': 'story%20glass.png',
                 '008': 'rolet%20cack.png',
-                '009': '%DA%A9%D8%B1%D9%85%20%D8%B4%DA%A9%D9%84%D8%A7%D8%AA%DB%8C.png'
+                '009': '%DA%A9%D8%B1%D9%85%20%D8%B4%DA%A9%D9%84%D8%A7%D8%AA%DB%8C.png',
+                '010': '%D8%AE%D9%85%DB%8C%D8%B1.png'
             };
             return images[id] || 'shifo%20logo2.png';
         }
