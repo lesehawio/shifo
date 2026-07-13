@@ -654,6 +654,10 @@
         .recipe-card:nth-child(3) { animation-delay: 0.12s; }
         .recipe-card:nth-child(4) { animation-delay: 0.16s; }
         .recipe-card:nth-child(5) { animation-delay: 0.20s; }
+        .recipe-card:nth-child(6) { animation-delay: 0.24s; }
+        .recipe-card:nth-child(7) { animation-delay: 0.28s; }
+        .recipe-card:nth-child(8) { animation-delay: 0.32s; }
+        .recipe-card:nth-child(9) { animation-delay: 0.36s; }
 
         @keyframes cardFadeUp {
             from { opacity: 0; transform: translateY(24px) scale(0.98); }
@@ -1022,6 +1026,7 @@
                         <a href="#" data-category="تنقلات" onclick="filterByCategory('تنقلات', this)">تنقلات</a>
                         <a href="#" data-category="سوپ" onclick="filterByCategory('سوپ', this)">سوپ‌ها</a>
                         <a href="#" data-category="صبحانه" onclick="filterByCategory('صبحانه', this)">صبحانه</a>
+                        <a href="#" data-category="کرم" onclick="filterByCategory('کرم', this)">کرم‌ها</a>
                     </div>
                     <button class="btn-voice" id="voiceButton" title="جستجوی صوتی" onclick="toggleVoiceSearch()">
                         <i class="fas fa-microphone"></i>
@@ -1224,7 +1229,8 @@
                     <h4>رولت کیک</h4>
                     <div class="recipe-meta">
                         <span><i class="far fa-clock"></i> 30 دقیقه</span>
-                        <span><i class="fas fa-fire"></i> 180°C</span>                    </div>
+                        <span><i class="fas fa-fire"></i> 180°C</span>
+                    </div>
                     <div class="recipe-actions">
                         <div class="cook-info">
                             <span><i class="fas fa-utensils"></i> 4 نفر</span>
@@ -1232,6 +1238,31 @@
                         </div>
                         <div>
                             <button class="favorite-btn" onclick="event.preventDefault(); toggleFavorite(this, '008')"><i class="far fa-heart"></i></button>
+                            <button class="btn">مشاهده</button>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <!-- Recipe 9 — جدید: کرم شکلاتی -->
+            <a href="009.html" class="recipe-card" data-category="کرم" data-id="009">
+                <div class="recipe-card-img" style="background-image: url('https://raw.githubusercontent.com/lesehawio/shifo/main/000/%DA%A9%D8%B1%D9%85%20%D8%B4%DA%A9%D9%84%D8%A7%D8%AA%DB%8C.png');">
+                    <span class="badge">سریع</span>
+                    <div class="img-overlay"></div>
+                </div>
+                <div class="recipe-card-body">
+                    <div class="tags"><span class="tag">کرم</span><span class="tag">شکلاتی</span><span class="tag">۱۰ دقیقه‌ای</span></div>
+                    <h4>کرم شکلاتی</h4>
+                    <div class="recipe-meta">
+                        <span><i class="far fa-clock"></i> 10 دقیقه</span>
+                        <span><i class="fas fa-fire"></i> حرارت کم</span>
+                    </div>
+                    <div class="recipe-actions">
+                        <div class="cook-info">
+                            <span><i class="fas fa-utensils"></i> 1 نفر</span>
+                            <span><i class="fas fa-signal"></i> آسان</span>
+                        </div>
+                        <div>
+                            <button class="favorite-btn" onclick="event.preventDefault(); toggleFavorite(this, '009')"><i class="far fa-heart"></i></button>
                             <button class="btn">مشاهده</button>
                         </div>
                     </div>
@@ -1332,10 +1363,10 @@
         // ============================================================
         const recipes = [
             { id: '001', title: 'کوکی توت فرنگی', category: 'دسر', file: '001.html', serves: '۴ نفر', difficulty: 'آسان',
-                time: '۳۰ دقیقه', temp: '۱۸۰°C' },
+                time: '۵۰ دقیقه', temp: '۱۸۰°C' },
             { id: '002', title: 'واژه ای برای هیچکس', category: 'نوشیدنی', file: '002.html', serves: '۱ نفر', difficulty: 'متوسط',
                 time: '۶۰ دقیقه', temp: '۰°C' },
-            { id: '003', title: 'حلوا تو حلوا', category: 'دسر', file: '003.html', serves: '۸ نفر', difficulty: 'دشوار',
+            { id: '003', title: 'حلوا تو حلوا', category: 'دسر', file: '003.html', serves: '۴ نفر', difficulty: 'دشوار',
                 time: '۷۰ دقیقه', temp: '۱۶۰°C' },
             { id: '004', title: 'لخته', category: 'نانوایی', file: '004.html', serves: '۴ نفر', difficulty: 'متوسط',
                 time: '۶۰ دقیقه', temp: '۱۸۰°C' },
@@ -1346,7 +1377,9 @@
             { id: '007', title: 'لیوان قصه مزه ها', category: 'لیوانی', file: '007.html', serves: '۱ نفر', difficulty: 'متوسط',
                 time: '۳۰ دقیقه', temp: '۰°C' },
             { id: '008', title: 'رولت کیک', category: 'دسر', file: '008.html', serves: '۴ نفر', difficulty: 'متوسط',
-                time: '۳۰ دقیقه', temp: '۱۸۰°C' }
+                time: '۳۰ دقیقه', temp: '۱۸۰°C' },
+            { id: '009', title: 'کرم شکلاتی', category: 'کرم', file: '009.html', serves: '۱ نفر', difficulty: 'آسان',
+                time: '۱۰ دقیقه', temp: 'حرارت کم' }
         ];
 
         // ============================================================
@@ -1401,7 +1434,8 @@
                     'تنقلات': 'تنقلات',
                     'سوپ': 'سوپ‌ها',
                     'صبحانه': 'صبحانه',
-                    'لیوانی': 'لیوانی'
+                    'لیوانی': 'لیوانی',
+                    'کرم': 'کرم‌ها'
                 };
                 const displayName = categoryNames[currentCategory] || currentCategory;
                 const countSpan = filterBtn.querySelector('span');
@@ -1574,7 +1608,8 @@
                 '005': 'omelette%20dumpling.jpeg',
                 '006': 'shadak.png',
                 '007': 'story%20glass.png',
-                '008': 'rolet%20cack.png'
+                '008': 'rolet%20cack.png',
+                '009': '%DA%A9%D8%B1%D9%85%20%D8%B4%DA%A9%D9%84%D8%A7%D8%AA%DB%8C.png'
             };
             return images[id] || 'shifo%20logo2.png';
         }
