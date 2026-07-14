@@ -663,6 +663,7 @@
         .recipe-card:nth-child(12) { animation-delay: 0.48s; }
         .recipe-card:nth-child(13) { animation-delay: 0.52s; }
         .recipe-card:nth-child(14) { animation-delay: 0.56s; }
+        .recipe-card:nth-child(15) { animation-delay: 0.60s; }
 
         @keyframes cardFadeUp {
             from { opacity: 0; transform: translateY(24px) scale(0.98); }
@@ -1036,6 +1037,7 @@
                         <a href="#" data-category="خوراک" onclick="filterByCategory('خوراک', this)">خوراک</a>
                         <a href="#" data-category="شیرینی-مجلس" onclick="filterByCategory('شیرینی-مجلس', this)">شیرینی مجلسی</a>
                         <a href="#" data-category="پنکیک" onclick="filterByCategory('پنکیک', this)">پنکیک</a>
+                        <a href="#" data-category="نوشیدنی" onclick="filterByCategory('نوشیدنی', this)">نوشیدنی</a>
                     </div>
                     <button class="btn-voice" id="voiceButton" title="جستجوی صوتی" onclick="toggleVoiceSearch()">
                         <i class="fas fa-microphone"></i>
@@ -1402,6 +1404,31 @@
                     </div>
                 </div>
             </a>
+            <!-- Recipe 15 — جدید: سیروپ -->
+            <a href="015.html" class="recipe-card" data-category="نوشیدنی" data-id="015">
+                <div class="recipe-card-img" style="background-image: url('https://raw.githubusercontent.com/lesehawio/shifo/main/000/sirop.png');">
+                    <span class="badge">نوشیدنی</span>
+                    <div class="img-overlay"></div>
+                </div>
+                <div class="recipe-card-body">
+                    <div class="tags"><span class="tag">سیروپ</span><span class="tag">نوشیدنی</span><span class="tag">خنک</span></div>
+                    <h4>سیروپ</h4>
+                    <div class="recipe-meta">
+                        <span><i class="far fa-clock"></i> 15 دقیقه</span>
+                        <span><i class="fas fa-fire"></i> بدون حرارت</span>
+                    </div>
+                    <div class="recipe-actions">
+                        <div class="cook-info">
+                            <span><i class="fas fa-utensils"></i> ۲ نفر</span>
+                            <span><i class="fas fa-signal"></i> آسان</span>
+                        </div>
+                        <div>
+                            <button class="favorite-btn" onclick="event.preventDefault(); toggleFavorite(this, '015')"><i class="far fa-heart"></i></button>
+                            <button class="btn">مشاهده</button>
+                        </div>
+                    </div>
+                </div>
+            </a>
         </div>
         <!-- ===== FAVORITES ===== -->
         <h2 class="section-title fade-in" id="favorites"><i class="fas fa-heart" style="color:var(--brand-primary);"></i> علاقه‌مندی‌ها</h2>
@@ -1523,7 +1550,9 @@
             { id: '013', title: 'کوکی بریلو', category: 'شیرینی-مجلس', file: '013.html', serves: '۴ نفر', difficulty: 'متوسط',
                 time: '۶۰ دقیقه', temp: '۱۸۰°C' },
             { id: '014', title: 'پنکیک خامه مرنگ', category: 'پنکیک', file: '014.html', serves: '۱-۲ نفر', difficulty: 'ساده',
-                time: '۶۰ دقیقه', temp: 'حرارت گاز' }
+                time: '۶۰ دقیقه', temp: 'حرارت گاز' },
+            { id: '015', title: 'سیروپ', category: 'نوشیدنی', file: '015.html', serves: '۲ نفر', difficulty: 'آسان',
+                time: '۱۵ دقیقه', temp: 'بدون حرارت' }
         ];
 
         // ============================================================
@@ -1762,7 +1791,8 @@
                 '011': 'kirita.jpeg',
                 '012': 'finger%20coock.jpeg',
                 '013': 'beralo%20coock.jpeg',
-                '014': 'pancack.jpeg'
+                '014': 'pancack.jpeg',
+                '015': 'sirop.png'
             };
             return images[id] || 'shifo%20logo2.png';
         }
