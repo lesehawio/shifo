@@ -664,6 +664,7 @@
         .recipe-card:nth-child(13) { animation-delay: 0.52s; }
         .recipe-card:nth-child(14) { animation-delay: 0.56s; }
         .recipe-card:nth-child(15) { animation-delay: 0.60s; }
+        .recipe-card:nth-child(16) { animation-delay: 0.64s; }
 
         @keyframes cardFadeUp {
             from { opacity: 0; transform: translateY(24px) scale(0.98); }
@@ -1037,7 +1038,6 @@
                         <a href="#" data-category="خوراک" onclick="filterByCategory('خوراک', this)">خوراک</a>
                         <a href="#" data-category="شیرینی-مجلس" onclick="filterByCategory('شیرینی-مجلس', this)">شیرینی مجلسی</a>
                         <a href="#" data-category="پنکیک" onclick="filterByCategory('پنکیک', this)">پنکیک</a>
-                        <a href="#" data-category="نوشیدنی" onclick="filterByCategory('نوشیدنی', this)">نوشیدنی</a>
                     </div>
                     <button class="btn-voice" id="voiceButton" title="جستجوی صوتی" onclick="toggleVoiceSearch()">
                         <i class="fas fa-microphone"></i>
@@ -1404,7 +1404,7 @@
                     </div>
                 </div>
             </a>
-            <!-- Recipe 15 — جدید: سیروپ -->
+            <!-- Recipe 15 — سیروپ -->
             <a href="015.html" class="recipe-card" data-category="نوشیدنی" data-id="015">
                 <div class="recipe-card-img" style="background-image: url('https://raw.githubusercontent.com/lesehawio/shifo/main/000/sirop.png');">
                     <span class="badge">نوشیدنی</span>
@@ -1424,6 +1424,31 @@
                         </div>
                         <div>
                             <button class="favorite-btn" onclick="event.preventDefault(); toggleFavorite(this, '015')"><i class="far fa-heart"></i></button>
+                            <button class="btn">مشاهده</button>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <!-- Recipe 16 — جدید: لیوان تابستونی -->
+            <a href="016.html" class="recipe-card" data-category="دسر" data-id="016">
+                <div class="recipe-card-img" style="background-image: url('https://raw.githubusercontent.com/lesehawio/shifo/main/000/summer%20cup.png');">
+                    <span class="badge">تابستونی</span>
+                    <div class="img-overlay"></div>
+                </div>
+                <div class="recipe-card-body">
+                    <div class="tags"><span class="tag">دسر</span><span class="tag">لیوانی</span><span class="tag">خنک</span></div>
+                    <h4>لیوان تابستونی</h4>
+                    <div class="recipe-meta">
+                        <span><i class="far fa-clock"></i> 20 دقیقه</span>
+                        <span><i class="fas fa-fire"></i> -</span>
+                    </div>
+                    <div class="recipe-actions">
+                        <div class="cook-info">
+                            <span><i class="fas fa-utensils"></i> ۱ نفر</span>
+                            <span><i class="fas fa-signal"></i> آسان</span>
+                        </div>
+                        <div>
+                            <button class="favorite-btn" onclick="event.preventDefault(); toggleFavorite(this, '016')"><i class="far fa-heart"></i></button>
                             <button class="btn">مشاهده</button>
                         </div>
                     </div>
@@ -1552,7 +1577,9 @@
             { id: '014', title: 'پنکیک خامه مرنگ', category: 'پنکیک', file: '014.html', serves: '۱-۲ نفر', difficulty: 'ساده',
                 time: '۶۰ دقیقه', temp: 'حرارت گاز' },
             { id: '015', title: 'سیروپ', category: 'نوشیدنی', file: '015.html', serves: '۲ نفر', difficulty: 'آسان',
-                time: '۱۵ دقیقه', temp: 'بدون حرارت' }
+                time: '۱۵ دقیقه', temp: 'بدون حرارت' },
+            { id: '016', title: 'لیوان تابستونی', category: 'دسر', file: '016.html', serves: '۱ نفر', difficulty: 'آسان',
+                time: '۲۰ دقیقه', temp: '-' }
         ];
 
         // ============================================================
@@ -1792,7 +1819,8 @@
                 '012': 'finger%20coock.jpeg',
                 '013': 'beralo%20coock.jpeg',
                 '014': 'pancack.jpeg',
-                '015': 'sirop.png'
+                '015': 'sirop.png',
+                '016': 'summer%20cup.png'
             };
             return images[id] || 'shifo%20logo2.png';
         }
