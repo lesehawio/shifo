@@ -666,6 +666,7 @@
         .recipe-card:nth-child(15) { animation-delay: 0.60s; }
         .recipe-card:nth-child(16) { animation-delay: 0.64s; }
         .recipe-card:nth-child(17) { animation-delay: 0.68s; }
+        .recipe-card:nth-child(18) { animation-delay: 0.72s; }
 
         @keyframes cardFadeUp {
             from { opacity: 0; transform: translateY(24px) scale(0.98); }
@@ -1455,7 +1456,7 @@
                     </div>
                 </div>
             </a>
-            <!-- Recipe 17 — جدید: کیک کاراملی -->
+            <!-- Recipe 17 — کیک کاراملی -->
             <a href="017.html" class="recipe-card" data-category="دسر" data-id="017">
                 <div class="recipe-card-img" style="background-image: url('https://raw.githubusercontent.com/lesehawio/shifo/main/000/Fig%20Caramel%20Cake.png');">
                     <span class="badge">کاراملی</span>
@@ -1475,6 +1476,31 @@
                         </div>
                         <div>
                             <button class="favorite-btn" onclick="event.preventDefault(); toggleFavorite(this, '017')"><i class="far fa-heart"></i></button>
+                            <button class="btn">مشاهده</button>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <!-- Recipe 18 — جدید: برگر دست‌ساز ویژه -->
+            <a href="018.html" class="recipe-card" data-category="خوراک" data-id="018">
+                <div class="recipe-card-img" style="background-image: url('https://raw.githubusercontent.com/lesehawio/shifo/main/000/Hamburger.png');">
+                    <span class="badge">برگر</span>
+                    <div class="img-overlay"></div>
+                </div>
+                <div class="recipe-card-body">
+                    <div class="tags"><span class="tag">برگر</span><span class="tag">دست‌ساز</span><span class="tag">ویژه</span></div>
+                    <h4>برگر دست‌ساز ویژه</h4>
+                    <div class="recipe-meta">
+                        <span><i class="far fa-clock"></i> 45 دقیقه</span>
+                        <span><i class="fas fa-fire"></i> 200°C</span>
+                    </div>
+                    <div class="recipe-actions">
+                        <div class="cook-info">
+                            <span><i class="fas fa-utensils"></i> 2-4 نفر</span>
+                            <span><i class="fas fa-signal"></i> متوسط</span>
+                        </div>
+                        <div>
+                            <button class="favorite-btn" onclick="event.preventDefault(); toggleFavorite(this, '018')"><i class="far fa-heart"></i></button>
                             <button class="btn">مشاهده</button>
                         </div>
                     </div>
@@ -1607,7 +1633,9 @@
             { id: '016', title: 'لیوان تابستونی', category: 'دسر', file: '016.html', serves: '۱ نفر', difficulty: 'آسان',
                 time: '۲۰ دقیقه', temp: '-' },
             { id: '017', title: 'کیک کاراملی', category: 'دسر', file: '017.html', serves: '۶-۸ نفر', difficulty: 'متوسط',
-                time: '۴۵ دقیقه', temp: '۱۸۰°C' }
+                time: '۴۵ دقیقه', temp: '۱۸۰°C' },
+            { id: '018', title: 'برگر دست‌ساز ویژه', category: 'خوراک', file: '018.html', serves: '۲ نفر', difficulty: 'متوسط',
+                time: '۴۰ دقیقه', temp: '۲۰۰°C' }
         ];
 
         // ============================================================
@@ -1849,7 +1877,8 @@
                 '014': 'pancack.jpeg',
                 '015': 'sirop.png',
                 '016': 'summer%20cup.png',
-                '017': 'Fig%20Caramel%20Cake.png'
+                '017': 'Fig%20Caramel%20Cake.png',
+                '018': 'Hamburger.png'
             };
             return images[id] || 'shifo%20logo2.png';
         }
