@@ -560,6 +560,8 @@
             min-width: 150px;
             z-index: 60;
             overflow: hidden;
+            max-height: 320px;
+            overflow-y: auto;
         }
         .filter-dropdown.show {
             display: block;
@@ -667,6 +669,9 @@
         .recipe-card:nth-child(16) { animation-delay: 0.64s; }
         .recipe-card:nth-child(17) { animation-delay: 0.68s; }
         .recipe-card:nth-child(18) { animation-delay: 0.72s; }
+        .recipe-card:nth-child(19) { animation-delay: 0.76s; }
+        .recipe-card:nth-child(20) { animation-delay: 0.80s; }
+        .recipe-card:nth-child(21) { animation-delay: 0.84s; }
 
         @keyframes cardFadeUp {
             from { opacity: 0; transform: translateY(24px) scale(0.98); }
@@ -1040,6 +1045,7 @@
                         <a href="#" data-category="خوراک" onclick="filterByCategory('خوراک', this)">خوراک</a>
                         <a href="#" data-category="شیرینی-مجلس" onclick="filterByCategory('شیرینی-مجلس', this)">شیرینی مجلسی</a>
                         <a href="#" data-category="پنکیک" onclick="filterByCategory('پنکیک', this)">پنکیک</a>
+                        <a href="#" data-category="بستنی" onclick="filterByCategory('بستنی', this)">بستنی‌ها</a>
                     </div>
                     <button class="btn-voice" id="voiceButton" title="جستجوی صوتی" onclick="toggleVoiceSearch()">
                         <i class="fas fa-microphone"></i>
@@ -1481,7 +1487,7 @@
                     </div>
                 </div>
             </a>
-            <!-- Recipe 18 — جدید: برگر دست‌ساز ویژه -->
+            <!-- Recipe 18 — برگر دست‌ساز ویژه -->
             <a href="018.html" class="recipe-card" data-category="خوراک" data-id="018">
                 <div class="recipe-card-img" style="background-image: url('https://raw.githubusercontent.com/lesehawio/shifo/main/000/Hamburger.png');">
                     <span class="badge">برگر</span>
@@ -1501,6 +1507,81 @@
                         </div>
                         <div>
                             <button class="favorite-btn" onclick="event.preventDefault(); toggleFavorite(this, '018')"><i class="far fa-heart"></i></button>
+                            <button class="btn">مشاهده</button>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <!-- Recipe 19 — بستنی معمولی انبه و کدو -->
+            <a href="019.html" class="recipe-card" data-category="بستنی" data-id="019">
+                <div class="recipe-card-img" style="background-image: url('https://raw.githubusercontent.com/lesehawio/shifo/main/000/mango%20icecream.png');">
+                    <span class="badge">کرمی</span>
+                    <div class="img-overlay"></div>
+                </div>
+                <div class="recipe-card-body">
+                    <div class="tags"><span class="tag">بستنی</span><span class="tag">میوه‌ای</span><span class="tag">خنک</span></div>
+                    <h4>بستنی معمولی انبه و کدو</h4>
+                    <div class="recipe-meta">
+                        <span><i class="far fa-clock"></i> ۳۰ دقیقه</span>
+                        <span><i class="fas fa-fire"></i> بدون حرارت</span>
+                    </div>
+                    <div class="recipe-actions">
+                        <div class="cook-info">
+                            <span><i class="fas fa-utensils"></i> ۲ نفر</span>
+                            <span><i class="fas fa-signal"></i> متوسط</span>
+                        </div>
+                        <div>
+                            <button class="favorite-btn" onclick="event.preventDefault(); toggleFavorite(this, '019')"><i class="far fa-heart"></i></button>
+                            <button class="btn">مشاهده</button>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <!-- Recipe 20 — بستنی کاستاردی شکلاتی -->
+            <a href="020.html" class="recipe-card" data-category="بستنی" data-id="020">
+                <div class="recipe-card-img" style="background-image: url('https://raw.githubusercontent.com/lesehawio/shifo/main/000/chocklet%20icecream.png');">
+                    <span class="badge">کاستاردی</span>
+                    <div class="img-overlay"></div>
+                </div>
+                <div class="recipe-card-body">
+                    <div class="tags"><span class="tag">بستنی</span><span class="tag">شکلاتی</span><span class="tag">کاستاردی</span></div>
+                    <h4>بستنی کاستاردی شکلاتی</h4>
+                    <div class="recipe-meta">
+                        <span><i class="far fa-clock"></i> ۳۰ دقیقه</span>
+                        <span><i class="fas fa-fire"></i> شعله متوسط به پایین</span>
+                    </div>
+                    <div class="recipe-actions">
+                        <div class="cook-info">
+                            <span><i class="fas fa-utensils"></i> ۲ نفر</span>
+                            <span><i class="fas fa-signal"></i> متوسط</span>
+                        </div>
+                        <div>
+                            <button class="favorite-btn" onclick="event.preventDefault(); toggleFavorite(this, '020')"><i class="far fa-heart"></i></button>
+                            <button class="btn">مشاهده</button>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <!-- Recipe 21 — نان پیتا -->
+            <a href="021.html" class="recipe-card" data-category="نانوایی" data-id="021">
+                <div class="recipe-card-img" style="background-image: url('https://raw.githubusercontent.com/lesehawio/shifo/main/000/pita.png');">
+                    <span class="badge">خانگی</span>
+                    <div class="img-overlay"></div>
+                </div>
+                <div class="recipe-card-body">
+                    <div class="tags"><span class="tag">نانوایی</span><span class="tag">نان</span><span class="tag">پیتا</span></div>
+                    <h4>نان پیتا</h4>
+                    <div class="recipe-meta">
+                        <span><i class="far fa-clock"></i> ۲ ساعت</span>
+                        <span><i class="fas fa-fire"></i> حرارت بالا</span>
+                    </div>
+                    <div class="recipe-actions">
+                        <div class="cook-info">
+                            <span><i class="fas fa-utensils"></i> ۴ نفر</span>
+                            <span><i class="fas fa-signal"></i> متوسط</span>
+                        </div>
+                        <div>
+                            <button class="favorite-btn" onclick="event.preventDefault(); toggleFavorite(this, '021')"><i class="far fa-heart"></i></button>
                             <button class="btn">مشاهده</button>
                         </div>
                     </div>
@@ -1635,7 +1716,13 @@
             { id: '017', title: 'کیک کاراملی', category: 'دسر', file: '017.html', serves: '۶-۸ نفر', difficulty: 'متوسط',
                 time: '۴۵ دقیقه', temp: '۱۸۰°C' },
             { id: '018', title: 'برگر دست‌ساز ویژه', category: 'خوراک', file: '018.html', serves: '۲ نفر', difficulty: 'متوسط',
-                time: '۴۰ دقیقه', temp: '۲۰۰°C' }
+                time: '۴۰ دقیقه', temp: '۲۰۰°C' },
+            { id: '019', title: 'بستنی معمولی انبه و کدو', category: 'بستنی', file: '019.html', serves: '۲ نفر', difficulty: 'متوسط',
+                time: '۳۰ دقیقه', temp: 'بدون حرارت' },
+            { id: '020', title: 'بستنی کاستاردی شکلاتی', category: 'بستنی', file: '020.html', serves: '۲ نفر', difficulty: 'متوسط',
+                time: '۳۰ دقیقه', temp: 'شعله متوسط به پایین' },
+            { id: '021', title: 'نان پیتا', category: 'نانوایی', file: '021.html', serves: '۴ نفر', difficulty: 'متوسط',
+                time: '۲ ساعت', temp: 'حرارت بالا' }
         ];
 
         // ============================================================
@@ -1695,7 +1782,8 @@
                     'خمیر': 'خمیر و شیرینی',
                     'خوراک': 'خوراک',
                     'شیرینی-مجلس': 'شیرینی مجلسی',
-                    'پنکیک': 'پنکیک'
+                    'پنکیک': 'پنکیک',
+                    'بستنی': 'بستنی‌ها'
                 };
                 const displayName = categoryNames[currentCategory] || currentCategory;
                 const countSpan = filterBtn.querySelector('span');
@@ -1878,7 +1966,10 @@
                 '015': 'sirop.png',
                 '016': 'summer%20cup.png',
                 '017': 'Fig%20Caramel%20Cake.png',
-                '018': 'Hamburger.png'
+                '018': 'Hamburger.png',
+                '019': 'mango%20icecream.png',
+                '020': 'chocklet%20icecream.png',
+                '021': 'pita.png'
             };
             return images[id] || 'shifo%20logo2.png';
         }
