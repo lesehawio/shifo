@@ -1046,6 +1046,7 @@
                         <a href="#" data-category="شیرینی-مجلس" onclick="filterByCategory('شیرینی-مجلس', this)">شیرینی مجلسی</a>
                         <a href="#" data-category="پنکیک" onclick="filterByCategory('پنکیک', this)">پنکیک</a>
                         <a href="#" data-category="بستنی" onclick="filterByCategory('بستنی', this)">بستنی‌ها</a>
+                        <a href="#" data-category="برگر" onclick="event.preventDefault(); filterByCategory('برگر', this)">برگر</a>
                     </div>
                     <button class="btn-voice" id="voiceButton" title="جستجوی صوتی" onclick="toggleVoiceSearch()">
                         <i class="fas fa-microphone"></i>
@@ -1587,6 +1588,58 @@
                     </div>
                 </div>
             </a>
+                                    <!-- Recipe 22 — برگر گوسفندی -->
+            <a href="022.html" class="recipe-card" data-category="خوراک" data-id="022">
+                <div class="recipe-card-img" style="background-image: url('https://raw.githubusercontent.com/lesehawio/shifo/main/000/bifburger.png');">
+                    <span class="badge">گوشتی</span>
+                    <div class="img-overlay"></div>
+                </div>
+                <div class="recipe-card-body">
+                    <div class="tags"><span class="tag">برگر</span><span class="tag">گوشت گوسفندی</span><span class="tag">دست‌ساز</span></div>
+                    <h4>برگر گوسفندی</h4>
+                    <div class="recipe-meta">
+                        <span><i class="far fa-clock"></i> ۱۵ دقیقه</span>
+                        <span><i class="fas fa-fire"></i> حرارت بالا</span>
+                    </div>
+                    <div class="recipe-actions">
+                        <div class="cook-info">
+                            <span><i class="fas fa-utensils"></i> وابسته به وزن</span>
+                            <span><i class="fas fa-signal"></i> آسان تا متوسط</span>
+                        </div>
+                        <div>
+                            <button class="favorite-btn" onclick="event.preventDefault(); toggleFavorite(this, '022')"><i class="far fa-heart"></i></button>
+                            <button class="btn">مشاهده</button>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Recipe 23 — نونچه تنوری شیفو -->
+            <a href="023.html" class="recipe-card" data-category="نانوایی" data-id="023">
+                <div class="recipe-card-img" style="background-image: url('https://raw.githubusercontent.com/lesehawio/shifo/main/000/nonche.png');">
+                    <span class="badge">تنوری</span>
+                    <div class="img-overlay"></div>
+                </div>
+                <div class="recipe-card-body">
+                    <div class="tags"><span class="tag">نانوایی</span><span class="tag">نونچه</span><span class="tag">مخصوص برگر</span></div>
+                    <h4>نونچه تنوری شیفو</h4>
+                    <div class="recipe-meta">
+                        <span><i class="far fa-clock"></i> ۲ ساعت</span>
+                        <span><i class="fas fa-fire"></i> حرارت بالا</span>
+                    </div>
+                    <div class="recipe-actions">
+                        <div class="cook-info">
+                            <span><i class="fas fa-utensils"></i> ۲ تا ۳ نان</span>
+                            <span><i class="fas fa-signal"></i> متوسط</span>
+                        </div>
+                        <div>
+                            <button class="favorite-btn" onclick="event.preventDefault(); toggleFavorite(this, '023')"><i class="far fa-heart"></i></button>
+                            <button class="btn">مشاهده</button>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
         </div>
         <!-- ===== FAVORITES ===== -->
         <h2 class="section-title fade-in" id="favorites"><i class="fas fa-heart" style="color:var(--brand-primary);"></i> علاقه‌مندی‌ها</h2>
@@ -1722,6 +1775,10 @@
             { id: '020', title: 'بستنی کاستاردی شکلاتی', category: 'بستنی', file: '020.html', serves: '۲ نفر', difficulty: 'متوسط',
                 time: '۳۰ دقیقه', temp: 'شعله متوسط به پایین' },
             { id: '021', title: 'نان پیتا', category: 'نانوایی', file: '021.html', serves: '۴ نفر', difficulty: 'متوسط',
+                time: '۲ ساعت', temp: 'حرارت بالا' },
+            { id: '022', title: 'برگر گوسفندی', category: 'خوراک', file: '022.html', serves: 'وابسته به وزن', difficulty: 'آسان تا متوسط',
+                time: '۱۵ دقیقه', temp: 'حرارت بالا' },
+            { id: '023', title: 'نونچه تنوری شیفو', category: 'نانوایی', file: '023.html', serves: '۲ تا ۳ نان', difficulty: 'متوسط',
                 time: '۲ ساعت', temp: 'حرارت بالا' }
         ];
 
@@ -1783,7 +1840,9 @@
                     'خوراک': 'خوراک',
                     'شیرینی-مجلس': 'شیرینی مجلسی',
                     'پنکیک': 'پنکیک',
-                    'بستنی': 'بستنی‌ها'
+                    'بستنی': 'بستنی‌ها',
+                    'برگر': 'برگر'
+
                 };
                 const displayName = categoryNames[currentCategory] || currentCategory;
                 const countSpan = filterBtn.querySelector('span');
@@ -1969,7 +2028,9 @@
                 '018': 'Hamburger.png',
                 '019': 'mango%20icecream.png',
                 '020': 'chocklet%20icecream.png',
-                '021': 'pita.png'
+                '021': 'pita.png',
+                '022': 'bifburger.png',
+                '023': 'nonche.png'
             };
             return images[id] || 'shifo%20logo2.png';
         }
